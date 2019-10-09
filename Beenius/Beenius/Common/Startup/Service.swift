@@ -13,7 +13,7 @@ public protocol Service {
 }
 
 extension Service {
-  public var id: String {
+  public var serviceId: String {
     return UUID().uuidString
   }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 protocol UserListDisplayLogic: AnyObject {
-  
 }
 
 class UserListViewController: UIViewController {

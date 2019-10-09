@@ -15,5 +15,4 @@ extension JSONDecoder {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     return decoder
   }
-  
 }

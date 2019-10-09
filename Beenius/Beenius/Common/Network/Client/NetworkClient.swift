@@ -23,7 +23,6 @@ extension NetworkClient: NetworkClientProtocol {
            parameters: NetworkClientProtocol.Params? = nil,
            headers: NetworkClientProtocol.Headers? = nil,
            _ result: DataResult) {
-    
     request(endpoint: endpoint,
             method: .get,
             parameters: parameters,
