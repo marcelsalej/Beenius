@@ -35,6 +35,11 @@
 		34B7D24C234E559000E47C89 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D247234E559000E47C89 /* UserListViewController.swift */; };
 		34B7D24D234E559000E47C89 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D248234E559000E47C89 /* UserListInteractor.swift */; };
 		34B7D24F234E562000E47C89 /* UIView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D24E234E562000E47C89 /* UIView+Extra.swift */; };
+		34B7D254234E5ECE00E47C89 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D253234E5ECE00E47C89 /* EndpointProtocol.swift */; };
+		34B7D256234E5F2700E47C89 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D255234E5F2700E47C89 /* Configuration.swift */; };
+		34B7D258234E608900E47C89 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D257234E608900E47C89 /* Endpoint.swift */; };
+		34B7D25A234E61C300E47C89 /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D259234E61C300E47C89 /* NetworkClientProtocol.swift */; };
+		34B7D25C234E621600E47C89 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D25B234E621600E47C89 /* NetworkClient.swift */; };
 		34D51037549594FBFA668FD2 /* Pods_Beenius_BeeniusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C37D58D08A68CEDCB81F45 /* Pods_Beenius_BeeniusUITests.framework */; };
 		9A28DC7405D2369464EFABB8 /* Pods_BeeniusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */; };
 		F6078EFA6E75862419C38267 /* Pods_Beenius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7C58B1DD81055035B9A598 /* Pods_Beenius.framework */; };
@@ -83,6 +88,11 @@
 		34B7D247234E559000E47C89 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		34B7D248234E559000E47C89 /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		34B7D24E234E562000E47C89 /* UIView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extra.swift"; sourceTree = "<group>"; };
+		34B7D253234E5ECE00E47C89 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
+		34B7D255234E5F2700E47C89 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		34B7D257234E608900E47C89 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		34B7D259234E61C300E47C89 /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
+		34B7D25B234E621600E47C89 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		6191A2212EAC81568C9E1445 /* Pods-BeeniusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeniusTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeniusTests/Pods-BeeniusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66C1FFAEADD98B6AEADA0DC2 /* Pods-Beenius.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beenius.release.xcconfig"; path = "Target Support Files/Pods-Beenius/Pods-Beenius.release.xcconfig"; sourceTree = "<group>"; };
 		9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeniusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,9 +168,9 @@
 		34B7D1E3234E3F2300E47C89 /* Beenius */ = {
 			isa = PBXGroup;
 			children = (
-				34B7D21F234E493500E47C89 /* Resources */,
 				34B7D21E234E492700E47C89 /* Common */,
 				34B7D21D234E491500E47C89 /* Scenes */,
+				34B7D21F234E493500E47C89 /* Resources */,
 				34B7D1E4234E3F2300E47C89 /* AppDelegate.swift */,
 			);
 			path = Beenius;
@@ -197,6 +207,7 @@
 		34B7D21E234E492700E47C89 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				34B7D250234E5E7B00E47C89 /* Network */,
 				34B7D223234E49F900E47C89 /* Utils */,
 				34B7D222234E49ED00E47C89 /* Extensions */,
 				34B7D221234E499000E47C89 /* UI */,
@@ -211,6 +222,7 @@
 				34B7D23D234E50FA00E47C89 /* Info.plist */,
 				34B7D1EF234E3F2300E47C89 /* LaunchScreen.storyboard */,
 				34B7D1ED234E3F2300E47C89 /* Assets.xcassets */,
+				34B7D255234E5F2700E47C89 /* Configuration.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -288,6 +300,33 @@
 				34B7D235234E4C0000E47C89 /* AppFlowController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		34B7D250234E5E7B00E47C89 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D252234E5EA900E47C89 /* Downloaders */,
+				34B7D251234E5E9B00E47C89 /* Client */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		34B7D251234E5E9B00E47C89 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D253234E5ECE00E47C89 /* EndpointProtocol.swift */,
+				34B7D257234E608900E47C89 /* Endpoint.swift */,
+				34B7D259234E61C300E47C89 /* NetworkClientProtocol.swift */,
+				34B7D25B234E621600E47C89 /* NetworkClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		34B7D252234E5EA900E47C89 /* Downloaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Downloaders;
 			sourceTree = "<group>";
 		};
 		8477A7A42A5D52827EEC23D5 /* Frameworks */ = {
@@ -561,14 +600,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B7D258234E608900E47C89 /* Endpoint.swift in Sources */,
+				34B7D254234E5ECE00E47C89 /* EndpointProtocol.swift in Sources */,
 				34B7D236234E4C0000E47C89 /* AppFlowController.swift in Sources */,
 				34B7D1E5234E3F2300E47C89 /* AppDelegate.swift in Sources */,
 				34B7D24A234E559000E47C89 /* UserListPresenter.swift in Sources */,
 				34B7D24B234E559000E47C89 /* UserListRouter.swift in Sources */,
 				34B7D228234E4A5400E47C89 /* Service.swift in Sources */,
+				34B7D25C234E621600E47C89 /* NetworkClient.swift in Sources */,
 				34B7D24C234E559000E47C89 /* UserListViewController.swift in Sources */,
+				34B7D256234E5F2700E47C89 /* Configuration.swift in Sources */,
 				34B7D22A234E4AB400E47C89 /* Process.swift in Sources */,
 				34B7D24D234E559000E47C89 /* UserListInteractor.swift in Sources */,
+				34B7D25A234E61C300E47C89 /* NetworkClientProtocol.swift in Sources */,
 				34B7D24F234E562000E47C89 /* UIView+Extra.swift in Sources */,
 				34B7D22D234E4B4800E47C89 /* InitialSceneSetupService.swift in Sources */,
 				34B7D249234E559000E47C89 /* UserListContentView.swift in Sources */,
