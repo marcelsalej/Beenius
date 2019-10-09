@@ -1,0 +1,6 @@
+framework module Pods_Beenius_BeeniusUITests {
+  umbrella header "Pods-Beenius-BeeniusUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
