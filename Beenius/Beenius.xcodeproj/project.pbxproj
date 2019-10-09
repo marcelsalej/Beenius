@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		34B7D1F1234E3F2300E47C89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D1EF234E3F2300E47C89 /* LaunchScreen.storyboard */; };
 		34B7D1FC234E3F2400E47C89 /* BeeniusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D1FB234E3F2400E47C89 /* BeeniusTests.swift */; };
 		34B7D207234E3F2400E47C89 /* BeeniusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D206234E3F2400E47C89 /* BeeniusUITests.swift */; };
+		34B7D219234E464C00E47C89 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D218234E464C00E47C89 /* .swiftlint.yml */; };
+		34B7D21A234E464C00E47C89 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D218234E464C00E47C89 /* .swiftlint.yml */; };
+		34B7D21B234E464C00E47C89 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D218234E464C00E47C89 /* .swiftlint.yml */; };
 		34D51037549594FBFA668FD2 /* Pods_Beenius_BeeniusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C37D58D08A68CEDCB81F45 /* Pods_Beenius_BeeniusUITests.framework */; };
 		9A28DC7405D2369464EFABB8 /* Pods_BeeniusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */; };
 		F6078EFA6E75862419C38267 /* Pods_Beenius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7C58B1DD81055035B9A598 /* Pods_Beenius.framework */; };
@@ -55,6 +58,7 @@
 		34B7D202234E3F2400E47C89 /* BeeniusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeniusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B7D206234E3F2400E47C89 /* BeeniusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeniusUITests.swift; sourceTree = "<group>"; };
 		34B7D208234E3F2400E47C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B7D218234E464C00E47C89 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6191A2212EAC81568C9E1445 /* Pods-BeeniusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeniusTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeniusTests/Pods-BeeniusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66C1FFAEADD98B6AEADA0DC2 /* Pods-Beenius.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beenius.release.xcconfig"; path = "Target Support Files/Pods-Beenius/Pods-Beenius.release.xcconfig"; sourceTree = "<group>"; };
 		9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeniusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,13 +105,13 @@
 				6191A2212EAC81568C9E1445 /* Pods-BeeniusTests.debug.xcconfig */,
 				051D649CC21D83DA353F9CFD /* Pods-BeeniusTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		34B7D1D8234E3F2300E47C89 = {
 			isa = PBXGroup;
 			children = (
+				34B7D218234E464C00E47C89 /* .swiftlint.yml */,
 				34B7D1E3234E3F2300E47C89 /* Beenius */,
 				34B7D1FA234E3F2400E47C89 /* BeeniusTests */,
 				34B7D205234E3F2400E47C89 /* BeeniusUITests */,
@@ -181,6 +185,7 @@
 				34B7D1DE234E3F2300E47C89 /* Frameworks */,
 				34B7D1DF234E3F2300E47C89 /* Resources */,
 				320FC25B6223ABE6FB37D780 /* [CP] Embed Pods Frameworks */,
+				34B7D21C234E46A100E47C89 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -278,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B7D219234E464C00E47C89 /* .swiftlint.yml in Resources */,
 				34B7D1F1234E3F2300E47C89 /* LaunchScreen.storyboard in Resources */,
 				34B7D1EE234E3F2300E47C89 /* Assets.xcassets in Resources */,
 				34B7D1EC234E3F2300E47C89 /* Main.storyboard in Resources */,
@@ -288,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B7D21A234E464C00E47C89 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B7D21B234E464C00E47C89 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +347,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beenius/Pods-Beenius-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		34B7D21C234E46A100E47C89 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		4160AFCB728C619B92034D7D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
