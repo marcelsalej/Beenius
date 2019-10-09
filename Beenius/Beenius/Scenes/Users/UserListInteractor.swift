@@ -9,7 +9,6 @@
 import Foundation
 
 protocol UserListBusinessLogic {
-  
 }
 
 class UserListInteractor {
@@ -18,5 +17,4 @@ class UserListInteractor {
 
 // MARK: - Business Logic
 extension UserListInteractor: UserListBusinessLogic {
-  
 }
