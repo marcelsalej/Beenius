@@ -63,14 +63,7 @@ large_tuple:
 - 2 # warning
 - 5 # error
 
-identifier_name:
-min_length: # only min_length
-  error: 4 # only error
-excluded: # excluded via string array
-  - id
-  - URL
-  - GlobalAPIKey
-
+  
 line_length:
 - 190 # warning
 - 200 # error
@@ -101,8 +94,10 @@ excluded:
 - UI
 
 identifier_name:
-min_length:
-- 2 # error
-max_length:
-- 50 # error
-
+  severity: warning
+  min_length: 1 # only warning
+  max_length: 80 # warning
+  excluded: # excluded via string array
+    - id
+    - URL
+  validates_start_with_lowercase: true
