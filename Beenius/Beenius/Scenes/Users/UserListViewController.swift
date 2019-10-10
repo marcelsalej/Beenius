@@ -56,6 +56,9 @@ extension UserListViewController: UserListDisplayLogic {
   func displayUserListError(error: NetworkError) {
     // TODO: - Show error
     print("Error user list")
+    contentView.toggleLoading(false)
+    contentView.setupNoDataView()
+    contentView.refreshControl.endRefreshing()
   }
   
   func displayUserListSuccess(users: [User]) {
@@ -63,6 +66,7 @@ extension UserListViewController: UserListDisplayLogic {
     dataSource.setData(users: users)
     contentView.toggleLoading(false)
     contentView.tableView.reloadData()
+    contentView.refreshControl.endRefreshing()
   }
 }
 
@@ -91,9 +95,17 @@ private extension UserListViewController {
     contentView.backgroundColor = .white
     contentView.tableView.dataSource = dataSource
     contentView.tableView.delegate = self
+    contentView.refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+
+// MARK: - Action methods
+private extension UserListViewController {
+  @objc func didPullToRefresh(sender: Any) {
+    interactor?.fetchUserList()
   }
 }
 
@@ -104,6 +116,6 @@ extension UserListViewController: UITableViewDelegate {
       contentView.tableView.deselectSelectedRow()
       return
     }
-    
+    router?.navigateToAlbumList(for: user)
   }
 }
