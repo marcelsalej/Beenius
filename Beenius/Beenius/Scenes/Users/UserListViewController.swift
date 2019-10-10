@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol UserListDisplayLogic: AnyObject {
+  func displayUserListSuccess(users: [User])
+  func displayUserListError(error: NetworkError)
 }
 
 class UserListViewController: UIViewController {
   var interactor: UserListBusinessLogic?
   var router: UserListRoutingLogic?
   private lazy var contentView = UserListContentView.setupAutoLayout()
+  private let dataSource = UsersListDataSource()
+  private var users: [User]?
   
+  // MARK: - Lifecycle
   init(delegate: UserListRouterDelegate?) {
     super.init(nibName: nil, bundle: nil)
     let interactor = UserListInteractor()
@@ -36,22 +42,80 @@ class UserListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    fetchUserList()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    contentView.tableView.deselectSelectedRow()
   }
 }
 
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
+  func displayUserListError(error: NetworkError) {
+    // TODO: - Show error
+    print("Error user list")
+    contentView.toggleLoading(false)
+    contentView.setupNoDataView()
+    contentView.refreshControl.endRefreshing()
+  }
+  
+  func displayUserListSuccess(users: [User]) {
+    self.users = users
+    dataSource.setData(users: users)
+    contentView.toggleLoading(false)
+    contentView.tableView.reloadData()
+    contentView.refreshControl.endRefreshing()
+  }
+}
+
+// MARK: - Load data
+private extension UserListViewController {
+  func fetchUserList() {
+    contentView.toggleLoading(true)
+    interactor?.fetchUserList()
+  }
 }
 
 // MARK: - UI Setup
 private extension UserListViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
+    setupNavigationHeader()
     setupContentView()
+  }
+  
+  func setupNavigationHeader() {
+    // TODO: - Move to localization
+    navigationItem.title = "Users"
   }
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.backgroundColor = .white
+    contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
+    contentView.refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+  }
+}
+
+// MARK: - Action methods
+private extension UserListViewController {
+  @objc func didPullToRefresh(sender: Any) {
+    interactor?.fetchUserList()
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension UserListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let user = users?[indexPath.row] else {
+      contentView.tableView.deselectSelectedRow()
+      return
+    }
+    router?.navigateToAlbumList(for: user)
   }
 }
