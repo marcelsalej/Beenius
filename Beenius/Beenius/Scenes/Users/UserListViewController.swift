@@ -18,7 +18,8 @@ class UserListViewController: UIViewController {
   var interactor: UserListBusinessLogic?
   var router: UserListRoutingLogic?
   private lazy var contentView = UserListContentView.setupAutoLayout()
-  private let dataSource = UsersListDataSourceDataSource()
+  private let dataSource = UsersListDataSource()
+  private var users: [User]?
   
   // MARK: - Lifecycle
   init(delegate: UserListRouterDelegate?) {
@@ -43,6 +44,11 @@ class UserListViewController: UIViewController {
     setupViews()
     fetchUserList()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    contentView.tableView.deselectSelectedRow()
+  }
 }
 
 // MARK: - Display Logic
@@ -53,7 +59,9 @@ extension UserListViewController: UserListDisplayLogic {
   }
   
   func displayUserListSuccess(users: [User]) {
+    self.users = users
     dataSource.setData(users: users)
+    contentView.toggleLoading(false)
     contentView.tableView.reloadData()
   }
 }
@@ -61,6 +69,7 @@ extension UserListViewController: UserListDisplayLogic {
 // MARK: - Load data
 private extension UserListViewController {
   func fetchUserList() {
+    contentView.toggleLoading(true)
     interactor?.fetchUserList()
   }
 }
@@ -80,8 +89,21 @@ private extension UserListViewController {
   func setupContentView() {
     view.addSubview(contentView)
     contentView.backgroundColor = .white
+    contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension UserListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let user = users?[indexPath.row] else {
+      contentView.tableView.deselectSelectedRow()
+      return
+    }
+    
   }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 protocol UserListRoutingLogic {
+  func navigateToAlbumList(for user: User)
 }
 
 protocol UserListRouterDelegate: AnyObject {
@@ -21,4 +22,7 @@ class UserListRouter {
 
 // MARK: - Routing Logic
 extension UserListRouter: UserListRoutingLogic {
+  func navigateToAlbumList(for user: User) {
+    // TODO: - navigate on from here
+  }
 }

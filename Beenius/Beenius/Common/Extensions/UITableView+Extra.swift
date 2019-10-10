@@ -29,4 +29,11 @@ public extension UITableView {
     }
     return cell
   }
+  
+  // MARK: - Helpers
+  func deselectSelectedRow(animated: Bool = true) {
+    indexPathForSelectedRow.map {
+      deselectRow(at: $0, animated: animated)
+    }
+  }
 }
