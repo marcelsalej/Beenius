@@ -9,6 +9,9 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
+  private let usernameNameLabel = UILabel.setupAutoLayout()
+  private let companyLabel = UILabel.setupAutoLayout()
+  
   // MARK: - Lifecycle
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
      super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,6 +26,16 @@ class UserTableViewCell: UITableViewCell {
 // MARK: - UI Setup
 private extension UserTableViewCell {
   func setupViews() {
+    setupUsernameNameLabel()
+    setupCompanyLabel()
+  }
+  
+  func setupUsernameNameLabel() {
+    addSubview(usernameNameLabel)
+  }
+  
+  func setupCompanyLabel() {
+    
   }
 }
 
