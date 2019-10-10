@@ -9,10 +9,12 @@
 import UIKit
 
 public extension UITableView {
+  // MARK: - Register
   func register<T: UITableViewCell>(_: T.Type) {
     register(T.self, forCellReuseIdentifier: T.identifier)
   }
   
+  // MARK: - Dequeue methods
   func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
     guard let cell = dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as? T else {
       fatalError("Could not dequeue cell with identifier: \(T.identifier)")
