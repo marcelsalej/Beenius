@@ -12,8 +12,8 @@ class UsersListDataSourceDataSource: NSObject, DataSourceProtocol {
   var sections: [UsersListDataSourceSection] = []
   
   /*init() {
-    super.init()
-  }*/
+   super.init()
+   }*/
 }
 
 // MARK: - Public Methods
@@ -41,9 +41,9 @@ extension UsersListDataSourceDataSource: UITableViewDataSource {
     }
     
     switch row {
-      case .user(let model):
-        let cell = tableView.dequeueReusableCell(UserTableViewCell.self, at: indexPath)
-        return cell
+    case .user(let model):
+      let cell = tableView.dequeueReusableCell(UserTableViewCell.self, at: indexPath)
+      return cell
     }
   }
 }
