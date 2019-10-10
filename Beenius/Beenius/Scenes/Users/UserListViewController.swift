@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 protocol UserListDisplayLogic: AnyObject {
+  func displayUserListSuccess(users: [User])
+  func displayUserListError(error: NetworkError)
 }
 
 class UserListViewController: UIViewController {
@@ -38,11 +40,26 @@ class UserListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    fetchUserList()
   }
 }
 
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
+  func displayUserListError(error: NetworkError) {
+    print("Error ")
+  }
+  
+  func displayUserListSuccess(users: [User]) {
+    print("Users \(users)")
+  }
+}
+
+// MARK: - Load data
+private extension UserListViewController {
+  func fetchUserList() {
+    interactor?.fetchUserList()
+  }
 }
 
 // MARK: - UI Setup

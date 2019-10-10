@@ -8,21 +8,18 @@
 
 import Foundation
 
-enum Endpoint {
-  case userList
-  case albumList
-  case photoList
-}
+enum Endpoint {}
 
 extension Endpoint {
-  var path: String {
-    switch self {
-    case .userList:
-      return "/users"
-    case .albumList:
-      return "/albums"
-    case .photoList:
-      return "/photos"
+  enum User: EndpointProtocol {
+    case userList
+    // add other endpoint attached to user if needed
+    
+    var path: String {
+      switch self {
+      case .userList:
+        return "/users"
+      }
     }
   }
 }
