@@ -32,6 +32,25 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+  <key>UIAppFonts</key>
+  <array>
+    <string>CentraNo2-ThinItalic.otf</string>
+    <string>CentraNo2-Thin.otf</string>
+    <string>CentraNo2-MediumItalic.otf</string>
+    <string>CentraNo2-Medium.otf</string>
+    <string>CentraNo2-LightItalic.otf</string>
+    <string>CentraNo2-Light.otf</string>
+    <string>CentraNo2-HairlineItalic.otf</string>
+    <string>CentraNo2-Hairline.otf</string>
+    <string>CentraNo2-ExtraBoldItalic.otf</string>
+    <string>CentraNo2-ExtraBold.otf</string>
+    <string>CentraNo2-BookItalic.otf</string>
+    <string>CentraNo2-Book.otf</string>
+    <string>CentraNo2-BoldItalic.otf</string>
+    <string>CentraNo2-Bold.otf</string>
+    <string>CentraNo2-BlackItalic.otf</string>
+    <string>CentraNo2-Black.otf</string>
+  </array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
