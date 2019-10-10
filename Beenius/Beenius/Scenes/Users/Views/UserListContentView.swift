@@ -9,6 +9,9 @@
 import UIKit
 
 class UserListContentView: UIView {
+  let tableView = UITableView.setupAutoLayout()
+  
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -19,10 +22,16 @@ class UserListContentView: UIView {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - View setup
 private extension UserListContentView {
   func setupViews() {
-    // setup background, shadows, etc
-    // call other views setup
+    setupTableView()
+  }
+  
+  func setupTableView() {
+    addSubview(tableView)
+    tableView.snp.makeConstraints {
+      $0.edges.equalTo(safeAreaLayoutGuide)
+    }
   }
 }

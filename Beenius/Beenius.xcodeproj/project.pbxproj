@@ -29,7 +29,6 @@
 		34B7D238234E4C0000E47C89 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D235234E4C0000E47C89 /* AppFlowController.swift */; };
 		34B7D23F234E50FA00E47C89 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D23D234E50FA00E47C89 /* Info.plist */; };
 		34B7D240234E50FA00E47C89 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B7D23D234E50FA00E47C89 /* Info.plist */; };
-		34B7D249234E559000E47C89 /* UserListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D244234E559000E47C89 /* UserListContentView.swift */; };
 		34B7D24A234E559000E47C89 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D245234E559000E47C89 /* UserListPresenter.swift */; };
 		34B7D24B234E559000E47C89 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D246234E559000E47C89 /* UserListRouter.swift */; };
 		34B7D24C234E559000E47C89 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D247234E559000E47C89 /* UserListViewController.swift */; };
@@ -51,6 +50,11 @@
 		34B7D26F234F1DE700E47C89 /* UICollectionView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D26E234F1DE700E47C89 /* UICollectionView+Extra.swift */; };
 		34B7D272234F201C00E47C89 /* SectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D271234F201C00E47C89 /* SectionProtocol.swift */; };
 		34B7D274234F20EB00E47C89 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D273234F20EB00E47C89 /* DataSourceProtocol.swift */; };
+		34B7D276234F289300E47C89 /* UserListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D244234E559000E47C89 /* UserListContentView.swift */; };
+		34B7D27B234F37DF00E47C89 /* UsersListDataSourceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */; };
+		34B7D27C234F37DF00E47C89 /* UsersListDataSourceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */; };
+		34B7D27D234F37DF00E47C89 /* UsersListDataSourceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */; };
+		34B7D280234F3A0E00E47C89 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D27F234F3A0E00E47C89 /* UserTableViewCell.swift */; };
 		34D51037549594FBFA668FD2 /* Pods_Beenius_BeeniusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C37D58D08A68CEDCB81F45 /* Pods_Beenius_BeeniusUITests.framework */; };
 		9A28DC7405D2369464EFABB8 /* Pods_BeeniusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */; };
 		F6078EFA6E75862419C38267 /* Pods_Beenius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7C58B1DD81055035B9A598 /* Pods_Beenius.framework */; };
@@ -115,6 +119,10 @@
 		34B7D26E234F1DE700E47C89 /* UICollectionView+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extra.swift"; sourceTree = "<group>"; };
 		34B7D271234F201C00E47C89 /* SectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionProtocol.swift; sourceTree = "<group>"; };
 		34B7D273234F20EB00E47C89 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
+		34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceSection.swift; sourceTree = "<group>"; };
+		34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceDataSource.swift; sourceTree = "<group>"; };
+		34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceRow.swift; sourceTree = "<group>"; };
+		34B7D27F234F3A0E00E47C89 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		6191A2212EAC81568C9E1445 /* Pods-BeeniusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeniusTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeniusTests/Pods-BeeniusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66C1FFAEADD98B6AEADA0DC2 /* Pods-Beenius.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beenius.release.xcconfig"; path = "Target Support Files/Pods-Beenius/Pods-Beenius.release.xcconfig"; sourceTree = "<group>"; };
 		9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeniusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,7 +300,9 @@
 		34B7D224234E4A1C00E47C89 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				34B7D244234E559000E47C89 /* UserListContentView.swift */,
+				34B7D27E234F39DA00E47C89 /* Cell */,
+				34B7D277234F37A200E47C89 /* DataSource */,
+				34B7D275234F26B000E47C89 /* Views */,
 				34B7D245234E559000E47C89 /* UserListPresenter.swift */,
 				34B7D246234E559000E47C89 /* UserListRouter.swift */,
 				34B7D247234E559000E47C89 /* UserListViewController.swift */,
@@ -376,6 +386,32 @@
 				34B7D273234F20EB00E47C89 /* DataSourceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		34B7D275234F26B000E47C89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D244234E559000E47C89 /* UserListContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34B7D277234F37A200E47C89 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */,
+				34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */,
+				34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		34B7D27E234F39DA00E47C89 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D27F234F3A0E00E47C89 /* UserTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8477A7A42A5D52827EEC23D5 /* Frameworks */ = {
@@ -652,6 +688,7 @@
 				34B7D25E234E670F00E47C89 /* NetworkError.swift in Sources */,
 				34B7D258234E608900E47C89 /* Endpoint.swift in Sources */,
 				34B7D254234E5ECE00E47C89 /* EndpointProtocol.swift in Sources */,
+				34B7D27C234F37DF00E47C89 /* UsersListDataSourceDataSource.swift in Sources */,
 				34B7D236234E4C0000E47C89 /* AppFlowController.swift in Sources */,
 				34B7D1E5234E3F2300E47C89 /* AppDelegate.swift in Sources */,
 				34B7D24A234E559000E47C89 /* UserListPresenter.swift in Sources */,
@@ -662,20 +699,23 @@
 				34B7D25C234E621600E47C89 /* NetworkClient.swift in Sources */,
 				34B7D24C234E559000E47C89 /* UserListViewController.swift in Sources */,
 				34B7D256234E5F2700E47C89 /* Configuration.swift in Sources */,
+				34B7D280234F3A0E00E47C89 /* UserTableViewCell.swift in Sources */,
 				34B7D272234F201C00E47C89 /* SectionProtocol.swift in Sources */,
+				34B7D276234F289300E47C89 /* UserListContentView.swift in Sources */,
 				34B7D261234E67B500E47C89 /* JSONDecoder+Extra.swift in Sources */,
 				34B7D22A234E4AB400E47C89 /* Process.swift in Sources */,
 				34B7D274234F20EB00E47C89 /* DataSourceProtocol.swift in Sources */,
+				34B7D27B234F37DF00E47C89 /* UsersListDataSourceSection.swift in Sources */,
 				34B7D26D234F1D7D00E47C89 /* UICollectionViewCell+Extra.swift in Sources */,
 				34B7D267234EFEFC00E47C89 /* Collection+Extra.swift in Sources */,
 				34B7D263234E67C800E47C89 /* JSONEncoder+Extra.swift in Sources */,
 				34B7D24D234E559000E47C89 /* UserListInteractor.swift in Sources */,
 				34B7D269234F009E00E47C89 /* UITableView+Extra.swift in Sources */,
 				34B7D265234E6EAB00E47C89 /* Logger.swift in Sources */,
+				34B7D27D234F37DF00E47C89 /* UsersListDataSourceRow.swift in Sources */,
 				34B7D25A234E61C300E47C89 /* NetworkClientProtocol.swift in Sources */,
 				34B7D24F234E562000E47C89 /* UIView+Extra.swift in Sources */,
 				34B7D22D234E4B4800E47C89 /* InitialSceneSetupService.swift in Sources */,
-				34B7D249234E559000E47C89 /* UserListContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
