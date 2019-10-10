@@ -23,6 +23,10 @@ class UserListRouter {
 // MARK: - Routing Logic
 extension UserListRouter: UserListRoutingLogic {
   func navigateToAlbumList(for user: User) {
-    // TODO: - navigate on from here
+    let albumsListViewController = AlbumsListViewController(delegate: self, user: user)
+    viewController?.navigationController?.pushViewController(albumsListViewController, animated: true)
   }
+}
+
+extension UserListRouter: AlbumsListRouterDelegate {
 }
