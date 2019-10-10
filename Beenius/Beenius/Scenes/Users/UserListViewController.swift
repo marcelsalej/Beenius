@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol UserListDisplayLogic: AnyObject {
 }
@@ -16,6 +17,7 @@ class UserListViewController: UIViewController {
   var router: UserListRoutingLogic?
   private lazy var contentView = UserListContentView.setupAutoLayout()
   
+  // MARK: - Lifecycle
   init(delegate: UserListRouterDelegate?) {
     super.init(nibName: nil, bundle: nil)
     let interactor = UserListInteractor()
@@ -46,12 +48,14 @@ extension UserListViewController: UserListDisplayLogic {
 // MARK: - UI Setup
 private extension UserListViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
   }
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.backgroundColor = .white
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
