@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersListDataSourceDataSource: NSObject, DataSourceProtocol {
+class UsersListDataSource: NSObject, DataSourceProtocol {
   var sections: [UsersListDataSourceSection] = []
   
   override init() {
@@ -17,15 +17,20 @@ class UsersListDataSourceDataSource: NSObject, DataSourceProtocol {
 }
 
 // MARK: - Public Methods
-extension UsersListDataSourceDataSource {
+extension UsersListDataSource {
   func setData(users: [User]) {
     sections.removeAll()
     // generate sections
+    var rows = [UsersListDataSourceRow]()
+    users.forEach { user in
+      rows.append(.user(.init(username: user.username, name: user.name, company: user.company.name)))
+    }
+    sections.append(.userList(rows: rows))
   }
 }
 
 // MARK: - UITableView DataSource
-extension UsersListDataSourceDataSource: UITableViewDataSource {
+extension UsersListDataSource: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return numberOfSections()
   }
@@ -43,6 +48,7 @@ extension UsersListDataSourceDataSource: UITableViewDataSource {
     switch row {
     case .user(let model):
       let cell = tableView.dequeueReusableCell(UserTableViewCell.self, at: indexPath)
+      cell.setData(from: model)
       return cell
     }
   }
