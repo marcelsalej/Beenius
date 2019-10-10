@@ -10,6 +10,8 @@ import UIKit
 
 class UserListContentView: UIView {
   let tableView = UITableView.setupAutoLayout()
+  let noDataView = NoDataView.setupAutoLayout()
+  lazy var refreshControl = UIRefreshControl.setupAutoLayout()
   private let activityIndicator = UIActivityIndicatorView.setupAutoLayout()
   
   // MARK: - Init methods
@@ -21,6 +23,25 @@ class UserListContentView: UIView {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+
+  func setupNoDataView() {
+    tableView.backgroundView = noDataView
+    tableView.separatorColor = .clear
+    noDataView.snp.makeConstraints {
+      $0.center.equalToSuperview()
+    }
+    UIView.animate(withDuration: 0.3) {
+      self.noDataView.isHidden = false
+    }
+  }
+  
+  func hideNoDataView() {
+    tableView.backgroundView = nil
+    tableView.separatorColor = .lightGray
+    UIView.animate(withDuration: 0.2) {
+      self.noDataView.isHidden = true
+    }
+  }
 }
 
 // MARK: - View setup
@@ -28,6 +49,7 @@ private extension UserListContentView {
   func setupViews() {
     setupTableView()
     setupActivityIndicator()
+    setupRefreshControl()
   }
   
   func setupTableView() {
@@ -44,6 +66,12 @@ private extension UserListContentView {
     activityIndicator.snp.makeConstraints {
       $0.center.equalToSuperview()
     }
+  }
+  
+  func setupRefreshControl() {
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.tintColor = .darkGray
+    tableView.addSubview(refreshControl)
   }
 }
 
