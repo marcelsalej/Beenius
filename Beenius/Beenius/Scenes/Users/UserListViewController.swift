@@ -18,6 +18,7 @@ class UserListViewController: UIViewController {
   var interactor: UserListBusinessLogic?
   var router: UserListRoutingLogic?
   private lazy var contentView = UserListContentView.setupAutoLayout()
+  private let dataSource = UsersListDataSourceDataSource()
   
   // MARK: - Lifecycle
   init(delegate: UserListRouterDelegate?) {
@@ -47,11 +48,13 @@ class UserListViewController: UIViewController {
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
   func displayUserListError(error: NetworkError) {
-    print("Error ")
+    // TODO: - Show error
+    print("Error user list")
   }
   
   func displayUserListSuccess(users: [User]) {
-    print("Users \(users)")
+    dataSource.setData(users: users)
+    contentView.tableView.reloadData()
   }
 }
 
@@ -65,7 +68,13 @@ private extension UserListViewController {
 // MARK: - UI Setup
 private extension UserListViewController {
   func setupViews() {
+    setupNavigationHeader()
     setupContentView()
+  }
+  
+  func setupNavigationHeader() {
+    // TODO: - Move to localization
+    navigationItem.title = "Users"
   }
   
   func setupContentView() {

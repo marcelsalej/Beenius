@@ -11,14 +11,14 @@ import UIKit
 class UsersListDataSourceDataSource: NSObject, DataSourceProtocol {
   var sections: [UsersListDataSourceSection] = []
   
-  /*init() {
-   super.init()
-   }*/
+  override init() {
+    super.init()
+  }
 }
 
 // MARK: - Public Methods
 extension UsersListDataSourceDataSource {
-  func setData() {
+  func setData(users: [User]) {
     sections.removeAll()
     // generate sections
   }
