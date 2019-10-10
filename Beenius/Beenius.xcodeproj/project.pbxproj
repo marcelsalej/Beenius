@@ -52,7 +52,7 @@
 		34B7D274234F20EB00E47C89 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D273234F20EB00E47C89 /* DataSourceProtocol.swift */; };
 		34B7D276234F289300E47C89 /* UserListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D244234E559000E47C89 /* UserListContentView.swift */; };
 		34B7D27B234F37DF00E47C89 /* UsersListDataSourceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */; };
-		34B7D27C234F37DF00E47C89 /* UsersListDataSourceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */; };
+		34B7D27C234F37DF00E47C89 /* UsersListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D279234F37DF00E47C89 /* UsersListDataSource.swift */; };
 		34B7D27D234F37DF00E47C89 /* UsersListDataSourceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */; };
 		34B7D280234F3A0E00E47C89 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D27F234F3A0E00E47C89 /* UserTableViewCell.swift */; };
 		34B7D282234F408A00E47C89 /* UserDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D281234F408A00E47C89 /* UserDownloader.swift */; };
@@ -140,7 +140,7 @@
 		34B7D271234F201C00E47C89 /* SectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionProtocol.swift; sourceTree = "<group>"; };
 		34B7D273234F20EB00E47C89 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
 		34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceSection.swift; sourceTree = "<group>"; };
-		34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceDataSource.swift; sourceTree = "<group>"; };
+		34B7D279234F37DF00E47C89 /* UsersListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSource.swift; sourceTree = "<group>"; };
 		34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListDataSourceRow.swift; sourceTree = "<group>"; };
 		34B7D27F234F3A0E00E47C89 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		34B7D281234F408A00E47C89 /* UserDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDownloader.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				34B7D278234F37DF00E47C89 /* UsersListDataSourceSection.swift */,
-				34B7D279234F37DF00E47C89 /* UsersListDataSourceDataSource.swift */,
+				34B7D279234F37DF00E47C89 /* UsersListDataSource.swift */,
 				34B7D27A234F37DF00E47C89 /* UsersListDataSourceRow.swift */,
 			);
 			path = DataSource;
@@ -788,7 +788,7 @@
 				34B7D25E234E670F00E47C89 /* NetworkError.swift in Sources */,
 				34B7D258234E608900E47C89 /* Endpoint.swift in Sources */,
 				34B7D254234E5ECE00E47C89 /* EndpointProtocol.swift in Sources */,
-				34B7D27C234F37DF00E47C89 /* UsersListDataSourceDataSource.swift in Sources */,
+				34B7D27C234F37DF00E47C89 /* UsersListDataSource.swift in Sources */,
 				34B7D236234E4C0000E47C89 /* AppFlowController.swift in Sources */,
 				34B7D1E5234E3F2300E47C89 /* AppDelegate.swift in Sources */,
 				34B7D288234F46DD00E47C89 /* UserService.swift in Sources */,

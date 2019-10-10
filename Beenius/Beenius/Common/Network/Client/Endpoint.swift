@@ -13,8 +13,8 @@ enum Endpoint {}
 extension Endpoint {
   enum User: EndpointProtocol {
     case userList
-    // add other endpoint attached to user if needed
     
+    // Add other endpoint regarded to user if needed
     var path: String {
       switch self {
       case .userList:
