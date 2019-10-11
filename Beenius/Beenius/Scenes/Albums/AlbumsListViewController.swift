@@ -19,6 +19,7 @@ class AlbumsListViewController: UIViewController {
   private lazy var contentView = AlbumsListContentView.setupAutoLayout()
   private let user: User
   private let dataSource = AlbumsDataSource()
+  private var viewModels = [ViewModel]()
   
   init(delegate: AlbumsListRouterDelegate?, user: User) {
     self.user = user
@@ -60,6 +61,7 @@ extension AlbumsListViewController {
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
   func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel]) {
+    self.viewModels = viewModels
     dataSource.setData(viewModels: viewModels)
     contentView.tableView.reloadData()
     contentView.toggleLoading(false)
@@ -104,7 +106,10 @@ private extension AlbumsListViewController {
 
 // MARK: - UITableViewDelegate
 extension AlbumsListViewController: UITableViewDelegate {
-  select
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedAlbum = viewModels[indexPath.row]
+    router?.navigateToPhotos(user: user, selectedAlbum: selectedAlbum)
+  }
 }
 
 extension AlbumsListViewController {

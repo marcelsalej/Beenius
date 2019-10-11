@@ -49,7 +49,6 @@ private extension AlbumsListContentView {
     setupActivityIndicator()
     setupTableView()
     setupRefreshControl()
-  
   }
   
   func setupActivityIndicator() {
