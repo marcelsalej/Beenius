@@ -8,6 +8,6 @@
 
 import UIKit
 
-enum AlbumsRow{
+enum AlbumsRow {
   case album(AlbumTableViewCell.ViewModel)
 }

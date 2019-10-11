@@ -22,4 +22,16 @@ extension Endpoint {
       }
     }
   }
+  
+  enum Albums: EndpointProtocol {
+    case albumsList
+    
+    // Add other endpoint regarded to albums if needed
+    var path: String {
+      switch self {
+      case .albumsList:
+        return "/albums"
+      }
+    }
+  }
 }
