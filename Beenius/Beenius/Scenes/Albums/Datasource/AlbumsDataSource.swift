@@ -18,10 +18,14 @@ class AlbumsDataSource: NSObject, DataSourceProtocol {
 
 // MARK: - Public Methods
 extension AlbumsDataSource {
-  //func setData(...) {
-  //  // generate section
-  //  //sections = [section]
-  //}
+  func setData(viewModels: [AlbumsListViewController.ViewModel]) {
+    var rows = [AlbumsRow]()
+    viewModels.forEach {
+      rows.append(.album(.init(albumTitle: $0.album.title,
+                               albumPhotoUrl: $0.photos.first?.thumbnailUrl ?? "")))
+    }
+    sections.append(.albums(rows: rows))
+  }
 }
 
 // MARK: - UITableView DataSource
@@ -42,7 +46,9 @@ extension AlbumsDataSource: UITableViewDataSource {
     
     switch row {
     case .album(let model):
-      return UITableViewCell()
+      let cell = tableView.dequeueReusableCell(AlbumTableViewCell.self, at: indexPath)
+      cell.setData(from: model)
+      return cell
     }
   }
 }

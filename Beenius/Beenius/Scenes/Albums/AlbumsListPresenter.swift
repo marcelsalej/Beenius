@@ -20,9 +20,14 @@ class AlbumsListPresenter {
 extension AlbumsListPresenter: AlbumsListPresentationLogic {
   func presentAlbumsList(userId: Int, albums: [Album], photos: [Photo]) {
     let selectedUserAlbums = albums.filter { $0.userId == userId }
-    let viewModel: [AlbumsListViewController.ViewModel] = selectedUserAlbums.map { album in
+    let viewModels: [AlbumsListViewController.ViewModel] = selectedUserAlbums.map { album in
       .init(album: album, photos: photos.filter { $0.albumId == album.id}) 
     }
-    viewController?.displayAlbumsListSuccess(viewModels: viewModel)
+    switch viewModels.isEmpty {
+    case true:
+      viewController?.displayAlbumsListFailure(error: .noData)
+    case false:
+      viewController?.displayAlbumsListSuccess(viewModels: viewModels)
+    }
   }
 }

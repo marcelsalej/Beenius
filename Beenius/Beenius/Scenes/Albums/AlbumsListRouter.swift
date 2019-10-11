@@ -9,6 +9,7 @@
 import Foundation
 
 protocol AlbumsListRoutingLogic {
+  func navigateToPhotos(user: User, selectedAlbum: AlbumsListViewController.ViewModel)
 }
 
 protocol AlbumsListRouterDelegate: AnyObject {
@@ -21,4 +22,7 @@ class AlbumsListRouter {
 
 // MARK: - Routing Logic
 extension AlbumsListRouter: AlbumsListRoutingLogic {
+  func navigateToPhotos(user: User, selectedAlbum: AlbumsListViewController.ViewModel) {
+    // TODO: - Load next controller
+  }
 }

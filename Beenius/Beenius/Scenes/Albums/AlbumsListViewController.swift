@@ -18,6 +18,8 @@ class AlbumsListViewController: UIViewController {
   var router: AlbumsListRoutingLogic?
   private lazy var contentView = AlbumsListContentView.setupAutoLayout()
   private let user: User
+  private let dataSource = AlbumsDataSource()
+  private var viewModels = [ViewModel]()
   
   init(delegate: AlbumsListRouterDelegate?, user: User) {
     self.user = user
@@ -44,12 +46,14 @@ class AlbumsListViewController: UIViewController {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    contentView.tableView.deselectSelectedRow()
   }
 }
 
 // MARK: - Load data
 extension AlbumsListViewController {
   func fetchUserAlbums(userId: Int) {
+    contentView.toggleLoading(true)
     interactor?.fetchAlbumList(for: userId)
   }
 }
@@ -57,16 +61,23 @@ extension AlbumsListViewController {
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
   func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel]) {
+    self.viewModels = viewModels
+    dataSource.setData(viewModels: viewModels)
+    contentView.tableView.reloadData()
+    contentView.toggleLoading(false)
+    contentView.refreshControl.endRefreshing()
   }
   
   func displayAlbumsListFailure(error: NetworkError) {
+    contentView.toggleLoading(false)
+    contentView.setupNoDataView()
+    contentView.refreshControl.endRefreshing()
   }
 }
 
 // MARK: - Private Methods
 private extension AlbumsListViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
     setupNavigationBar()
   }
@@ -74,6 +85,9 @@ private extension AlbumsListViewController {
   func setupContentView() {
     view.addSubview(contentView)
     contentView.backgroundColor = .white
+    contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
+    contentView.refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
@@ -81,6 +95,20 @@ private extension AlbumsListViewController {
   
   func setupNavigationBar() {
     navigationItem.title = "Albums"
+  }
+}
+
+private extension AlbumsListViewController {
+  @objc func didPullToRefresh() {
+    interactor?.fetchAlbumList(for: user.id)
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension AlbumsListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedAlbum = viewModels[indexPath.row]
+    router?.navigateToPhotos(user: user, selectedAlbum: selectedAlbum)
   }
 }
 
