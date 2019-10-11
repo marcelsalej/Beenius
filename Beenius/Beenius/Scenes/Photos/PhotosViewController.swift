@@ -9,15 +9,18 @@
 import UIKit
 
 protocol PhotosDisplayLogic: AnyObject {
-  
 }
 
 class PhotosViewController: UIViewController {
   var interactor: PhotosBusinessLogic?
   var router: PhotosRoutingLogic?
   private lazy var contentView = PhotosContentView.setupAutoLayout()
+  private let user: User
+  private let selectedAlbum: AlbumsListViewController.ViewModel
   
-  init(delegate: PhotosRouterDelegate?) {
+  init(delegate: PhotosRouterDelegate?, user: User, selectedAlbum: AlbumsListViewController.ViewModel) {
+    self.user = user
+    self.selectedAlbum = selectedAlbum
     super.init(nibName: nil, bundle: nil)
     let interactor = PhotosInteractor()
     let presenter = PhotosPresenter()
@@ -53,11 +56,14 @@ private extension PhotosViewController {
   }
   
   func setupNavigationTitle() {
-    navigationItem.title = "photo"
+    navigationItem.title = selectedAlbum.album.title
   }
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.backgroundColor = .white
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
