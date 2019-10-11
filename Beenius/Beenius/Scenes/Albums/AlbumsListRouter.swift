@@ -23,6 +23,9 @@ class AlbumsListRouter {
 // MARK: - Routing Logic
 extension AlbumsListRouter: AlbumsListRoutingLogic {
   func navigateToPhotos(user: User, selectedAlbum: AlbumsListViewController.ViewModel) {
-    // TODO: - Load next controller
+    let photoListViewController = PhotosViewController(delegate: self, user: user, selectedAlbum: selectedAlbum)
+    viewController?.navigationController?.pushViewController(photoListViewController, animated: true)
   }
 }
+
+extension AlbumsListRouter: PhotosRouterDelegate {}
