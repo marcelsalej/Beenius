@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AlbumsListDisplayLogic: AnyObject {
-  func displayAlbumsListSuccess(albumsList: [Album])
+  func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel])
   func displayAlbumsListFailure(error: NetworkError)
 }
 
@@ -56,7 +56,7 @@ extension AlbumsListViewController {
 
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
-  func displayAlbumsListSuccess(albumsList: [Album]) {
+  func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel]) {
   }
   
   func displayAlbumsListFailure(error: NetworkError) {
@@ -81,5 +81,12 @@ private extension AlbumsListViewController {
   
   func setupNavigationBar() {
     navigationItem.title = "Albums"
+  }
+}
+
+extension AlbumsListViewController {
+  struct ViewModel {
+    let album: Album
+    let photos: [Photo]
   }
 }

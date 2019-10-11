@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AlbumsListPresentationLogic {
-  func presentAlbumsList(userId: Int, result: Result<[Album], NetworkError>)
+  func presentAlbumsList(userId: Int, albums: [Album], photos: [Photo])
 }
 
 class AlbumsListPresenter {
@@ -18,13 +18,11 @@ class AlbumsListPresenter {
 
 // MARK: - Presentation Logic
 extension AlbumsListPresenter: AlbumsListPresentationLogic {
-  func presentAlbumsList(userId: Int, result: Result<[Album], NetworkError>) {
-    switch result {
-    case .success(let albumList):
-      let usersAlbums = albumList.filter { $0.userId == userId }
-      viewController?.displayAlbumsListSuccess(albumsList: usersAlbums)
-    case .failure(let error):
-      viewController?.displayAlbumsListFailure(error: error)
+  func presentAlbumsList(userId: Int, albums: [Album], photos: [Photo]) {
+    let selectedUserAlbums = albums.filter { $0.userId == userId }
+    let viewModel: [AlbumsListViewController.ViewModel] = selectedUserAlbums.map { album in
+      .init(album: album, photos: photos.filter { $0.albumId == album.id}) 
     }
+    viewController?.displayAlbumsListSuccess(viewModels: viewModel)
   }
 }
