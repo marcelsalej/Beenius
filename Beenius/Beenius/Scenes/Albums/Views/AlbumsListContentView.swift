@@ -43,7 +43,7 @@ class AlbumsListContentView: UIView {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension AlbumsListContentView {
   func setupViews() {
     setupActivityIndicator()

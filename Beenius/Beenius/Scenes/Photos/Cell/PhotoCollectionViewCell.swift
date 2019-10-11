@@ -26,7 +26,7 @@ extension PhotoCollectionViewCell {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension PhotoCollectionViewCell {
   func setupViews() {
   }
