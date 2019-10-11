@@ -18,6 +18,7 @@ class AlbumsListViewController: UIViewController {
   var router: AlbumsListRoutingLogic?
   private lazy var contentView = AlbumsListContentView.setupAutoLayout()
   private let user: User
+  private let dataSource = AlbumsDataSource()
   
   init(delegate: AlbumsListRouterDelegate?, user: User) {
     self.user = user
