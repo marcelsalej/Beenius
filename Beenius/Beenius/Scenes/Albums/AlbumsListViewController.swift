@@ -9,6 +9,8 @@
 import UIKit
 
 protocol AlbumsListDisplayLogic: AnyObject {
+  func displayAlbumsListSuccess(albumsList: [Album])
+  func displayAlbumsListFailure(error: NetworkError)
 }
 
 class AlbumsListViewController: UIViewController {
@@ -48,12 +50,17 @@ class AlbumsListViewController: UIViewController {
 // MARK: - Load data
 extension AlbumsListViewController {
   func fetchUserAlbums(userId: Int) {
-    // load data here
+    interactor?.fetchAlbumList(for: userId)
   }
 }
 
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
+  func displayAlbumsListSuccess(albumsList: [Album]) {
+  }
+  
+  func displayAlbumsListFailure(error: NetworkError) {
+  }
 }
 
 // MARK: - Private Methods
