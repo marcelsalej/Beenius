@@ -91,6 +91,15 @@
 		34B7D2D12350A4AB00E47C89 /* PhotosDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2D02350A4AB00E47C89 /* PhotosDownloader.swift */; };
 		34B7D2D32350A4B700E47C89 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2D22350A4B700E47C89 /* PhotosService.swift */; };
 		34B7D2D52350A4C100E47C89 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2D42350A4C100E47C89 /* Photo.swift */; };
+		34B7D2EB2350C90E00E47C89 /* PhotosContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2E62350C90E00E47C89 /* PhotosContentView.swift */; };
+		34B7D2EC2350C90E00E47C89 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2E72350C90E00E47C89 /* PhotosPresenter.swift */; };
+		34B7D2ED2350C90E00E47C89 /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2E82350C90E00E47C89 /* PhotosRouter.swift */; };
+		34B7D2EE2350C90E00E47C89 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2E92350C90E00E47C89 /* PhotosViewController.swift */; };
+		34B7D2EF2350C90E00E47C89 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2EA2350C90E00E47C89 /* PhotosInteractor.swift */; };
+		34B7D2F12350C92900E47C89 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2F02350C92900E47C89 /* PhotoCollectionViewCell.swift */; };
+		34B7D2F52350C94200E47C89 /* PhotoListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2F22350C94200E47C89 /* PhotoListSection.swift */; };
+		34B7D2F62350C94200E47C89 /* PhotoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2F32350C94200E47C89 /* PhotoListDataSource.swift */; };
+		34B7D2F72350C94200E47C89 /* PhotoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B7D2F42350C94200E47C89 /* PhotoListRow.swift */; };
 		34D51037549594FBFA668FD2 /* Pods_Beenius_BeeniusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C37D58D08A68CEDCB81F45 /* Pods_Beenius_BeeniusUITests.framework */; };
 		9A28DC7405D2369464EFABB8 /* Pods_BeeniusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */; };
 		F6078EFA6E75862419C38267 /* Pods_Beenius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7C58B1DD81055035B9A598 /* Pods_Beenius.framework */; };
@@ -195,6 +204,15 @@
 		34B7D2D02350A4AB00E47C89 /* PhotosDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDownloader.swift; sourceTree = "<group>"; };
 		34B7D2D22350A4B700E47C89 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		34B7D2D42350A4C100E47C89 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		34B7D2E62350C90E00E47C89 /* PhotosContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosContentView.swift; sourceTree = "<group>"; };
+		34B7D2E72350C90E00E47C89 /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
+		34B7D2E82350C90E00E47C89 /* PhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouter.swift; sourceTree = "<group>"; };
+		34B7D2E92350C90E00E47C89 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		34B7D2EA2350C90E00E47C89 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
+		34B7D2F02350C92900E47C89 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		34B7D2F22350C94200E47C89 /* PhotoListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListSection.swift; sourceTree = "<group>"; };
+		34B7D2F32350C94200E47C89 /* PhotoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListDataSource.swift; sourceTree = "<group>"; };
+		34B7D2F42350C94200E47C89 /* PhotoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListRow.swift; sourceTree = "<group>"; };
 		6191A2212EAC81568C9E1445 /* Pods-BeeniusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeniusTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeniusTests/Pods-BeeniusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66C1FFAEADD98B6AEADA0DC2 /* Pods-Beenius.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beenius.release.xcconfig"; path = "Target Support Files/Pods-Beenius/Pods-Beenius.release.xcconfig"; sourceTree = "<group>"; };
 		9DF280192398BEA13A883D8B /* Pods_BeeniusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeniusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,8 +407,8 @@
 		34B7D225234E4A2600E47C89 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
-				34B7D2BD234FDEC800E47C89 /* Datasource */,
-				34B7D2BC234FDEBC00E47C89 /* Cells */,
+				34B7D2BD234FDEC800E47C89 /* DataSource */,
+				34B7D2BC234FDEBC00E47C89 /* Cell */,
 				34B7D2BB234FDEB400E47C89 /* Views */,
 				34B7D2B2234FDDF300E47C89 /* AlbumsListPresenter.swift */,
 				34B7D2B3234FDDF300E47C89 /* AlbumsListRouter.swift */,
@@ -403,6 +421,13 @@
 		34B7D226234E4A2E00E47C89 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				34B7D2E52350C8D200E47C89 /* Cell */,
+				34B7D2E42350C8BE00E47C89 /* DataSource */,
+				34B7D2E32350C8B200E47C89 /* Views */,
+				34B7D2E72350C90E00E47C89 /* PhotosPresenter.swift */,
+				34B7D2E82350C90E00E47C89 /* PhotosRouter.swift */,
+				34B7D2E92350C90E00E47C89 /* PhotosViewController.swift */,
+				34B7D2EA2350C90E00E47C89 /* PhotosInteractor.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -548,22 +573,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		34B7D2BC234FDEBC00E47C89 /* Cells */ = {
+		34B7D2BC234FDEBC00E47C89 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				34B7D2BE234FDEFE00E47C89 /* AlbumTableViewCell.swift */,
 			);
-			path = Cells;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		34B7D2BD234FDEC800E47C89 /* Datasource */ = {
+		34B7D2BD234FDEC800E47C89 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				34B7D2C0234FDF6A00E47C89 /* AlbumsSection.swift */,
 				34B7D2C1234FDF6A00E47C89 /* AlbumsDataSource.swift */,
 				34B7D2C2234FDF6A00E47C89 /* AlbumsRow.swift */,
 			);
-			path = Datasource;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		34B7D2C7235088C600E47C89 /* Albums */ = {
@@ -584,6 +609,32 @@
 				34B7D2D42350A4C100E47C89 /* Photo.swift */,
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		34B7D2E32350C8B200E47C89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D2E62350C90E00E47C89 /* PhotosContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34B7D2E42350C8BE00E47C89 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D2F22350C94200E47C89 /* PhotoListSection.swift */,
+				34B7D2F32350C94200E47C89 /* PhotoListDataSource.swift */,
+				34B7D2F42350C94200E47C89 /* PhotoListRow.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		34B7D2E52350C8D200E47C89 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34B7D2F02350C92900E47C89 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8477A7A42A5D52827EEC23D5 /* Frameworks */ = {
@@ -874,12 +925,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B7D25E234E670F00E47C89 /* NetworkError.swift in Sources */,
+				34B7D2EF2350C90E00E47C89 /* PhotosInteractor.swift in Sources */,
 				34B7D258234E608900E47C89 /* Endpoint.swift in Sources */,
 				34B7D254234E5ECE00E47C89 /* EndpointProtocol.swift in Sources */,
 				34B7D27C234F37DF00E47C89 /* UsersListDataSource.swift in Sources */,
 				34B7D236234E4C0000E47C89 /* AppFlowController.swift in Sources */,
 				34B7D2D12350A4AB00E47C89 /* PhotosDownloader.swift in Sources */,
 				34B7D1E5234E3F2300E47C89 /* AppDelegate.swift in Sources */,
+				34B7D2F12350C92900E47C89 /* PhotoCollectionViewCell.swift in Sources */,
 				34B7D288234F46DD00E47C89 /* UserService.swift in Sources */,
 				34B7D24A234E559000E47C89 /* UserListPresenter.swift in Sources */,
 				34B7D24B234E559000E47C89 /* UserListRouter.swift in Sources */,
@@ -895,19 +948,25 @@
 				34B7D2C5234FDF6A00E47C89 /* AlbumsRow.swift in Sources */,
 				34B7D2C9235088D900E47C89 /* AlbumsDownloader.swift in Sources */,
 				34B7D256234E5F2700E47C89 /* Configuration.swift in Sources */,
+				34B7D2F52350C94200E47C89 /* PhotoListSection.swift in Sources */,
 				34B7D280234F3A0E00E47C89 /* UserTableViewCell.swift in Sources */,
 				34B7D2D32350A4B700E47C89 /* PhotosService.swift in Sources */,
 				34B7D272234F201C00E47C89 /* SectionProtocol.swift in Sources */,
 				34B7D276234F289300E47C89 /* UserListContentView.swift in Sources */,
 				34B7D2CE235089B800E47C89 /* Album.swift in Sources */,
+				34B7D2F62350C94200E47C89 /* PhotoListDataSource.swift in Sources */,
 				34B7D261234E67B500E47C89 /* JSONDecoder+Extra.swift in Sources */,
 				34B7D28C234FBF2D00E47C89 /* UIFont+Extra.swift in Sources */,
+				34B7D2EB2350C90E00E47C89 /* PhotosContentView.swift in Sources */,
 				34B7D22A234E4AB400E47C89 /* Process.swift in Sources */,
+				34B7D2F72350C94200E47C89 /* PhotoListRow.swift in Sources */,
 				34B7D274234F20EB00E47C89 /* DataSourceProtocol.swift in Sources */,
 				34B7D27B234F37DF00E47C89 /* UsersListDataSourceSection.swift in Sources */,
 				34B7D26D234F1D7D00E47C89 /* UICollectionViewCell+Extra.swift in Sources */,
+				34B7D2EE2350C90E00E47C89 /* PhotosViewController.swift in Sources */,
 				34B7D2B9234FDDF300E47C89 /* AlbumsListViewController.swift in Sources */,
 				34B7D267234EFEFC00E47C89 /* Collection+Extra.swift in Sources */,
+				34B7D2EC2350C90E00E47C89 /* PhotosPresenter.swift in Sources */,
 				34B7D2C4234FDF6A00E47C89 /* AlbumsDataSource.swift in Sources */,
 				34B7D2B0234FCE3200E47C89 /* NoDataView.swift in Sources */,
 				34B7D263234E67C800E47C89 /* JSONEncoder+Extra.swift in Sources */,
@@ -918,6 +977,7 @@
 				34B7D265234E6EAB00E47C89 /* Logger.swift in Sources */,
 				34B7D27D234F37DF00E47C89 /* UsersListDataSourceRow.swift in Sources */,
 				34B7D2B7234FDDF300E47C89 /* AlbumsListPresenter.swift in Sources */,
+				34B7D2ED2350C90E00E47C89 /* PhotosRouter.swift in Sources */,
 				34B7D25A234E61C300E47C89 /* NetworkClientProtocol.swift in Sources */,
 				34B7D282234F408A00E47C89 /* UserDownloader.swift in Sources */,
 				34B7D24F234E562000E47C89 /* UIView+Extra.swift in Sources */,
