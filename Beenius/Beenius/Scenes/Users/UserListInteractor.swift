@@ -13,12 +13,8 @@ protocol UserListBusinessLogic {
 }
 
 class UserListInteractor {
-  private let userService: UserService
+  lazy var userService: UserService = .init()
   var presenter: UserListPresentationLogic?
-  
-  init(userService: UserService = .init()) {
-    self.userService = userService
-  }
 }
 
 // MARK: - Business Logic

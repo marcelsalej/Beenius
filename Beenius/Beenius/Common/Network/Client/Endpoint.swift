@@ -22,4 +22,28 @@ extension Endpoint {
       }
     }
   }
+  
+  enum Albums: EndpointProtocol {
+    case albumsList
+    
+    // Add other endpoints regarded to albums if needed
+    var path: String {
+      switch self {
+      case .albumsList:
+        return "/albums"
+      }
+    }
+  }
+  
+  enum Photo: EndpointProtocol {
+    case photoList
+    
+    // Add other endpoints regarderd to photos if needed
+    var path: String {
+      switch self {
+      case .photoList:
+        return "/photos"
+      }
+    }
+  }
 }
