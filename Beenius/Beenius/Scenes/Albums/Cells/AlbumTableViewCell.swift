@@ -42,6 +42,8 @@ private extension AlbumTableViewCell {
   func setupAlbumTitleLabel() {
     addSubview(albumTitleLabel)
     albumTitleLabel.font = UIFont.custom(style: .book, size: 14)
+    albumTitleLabel.numberOfLines = 0
+    albumTitleLabel.lineBreakMode = .byWordWrapping
     albumTitleLabel.snp.makeConstraints {
       $0.leading.equalToSuperview().inset(30)
       $0.centerY.equalToSuperview()
@@ -52,8 +54,10 @@ private extension AlbumTableViewCell {
     addSubview(albumImage)
     albumImage.contentMode = .scaleAspectFit
     albumImage.snp.makeConstraints {
-      $0.trailing.equalToSuperview().inset(30)
-      $0.top.bottom.equalToSuperview()
+      $0.trailing.equalToSuperview().inset(10)
+      $0.top.bottom.equalToSuperview().inset(10)
+      $0.leading.equalTo(albumTitleLabel.snp.trailing).offset(10)
+      $0.width.height.equalTo(150)
     }
   }
 }

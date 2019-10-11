@@ -45,6 +45,7 @@ class AlbumsListViewController: UIViewController {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    contentView.tableView.deselectSelectedRow()
   }
 }
 
@@ -58,8 +59,8 @@ extension AlbumsListViewController {
 
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
-  func displayAlbumsListSuccess(albumsList: [Album]) {
-    dataSource.setData(albumsList: albumsList)
+  func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel]) {
+    dataSource.setData(viewModels: viewModels)
     contentView.tableView.reloadData()
     contentView.toggleLoading(false)
     contentView.refreshControl.endRefreshing()
@@ -75,7 +76,6 @@ extension AlbumsListViewController: AlbumsListDisplayLogic {
 // MARK: - Private Methods
 private extension AlbumsListViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
     setupNavigationBar()
   }
@@ -84,6 +84,8 @@ private extension AlbumsListViewController {
     view.addSubview(contentView)
     contentView.backgroundColor = .white
     contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
+    contentView.refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
@@ -92,6 +94,17 @@ private extension AlbumsListViewController {
   func setupNavigationBar() {
     navigationItem.title = "Albums"
   }
+}
+
+private extension AlbumsListViewController {
+  @objc func didPullToRefresh() {
+    interactor?.fetchAlbumList(for: user.id)
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension AlbumsListViewController: UITableViewDelegate {
+  select
 }
 
 extension AlbumsListViewController {

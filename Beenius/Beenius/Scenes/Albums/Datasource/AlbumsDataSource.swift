@@ -18,11 +18,11 @@ class AlbumsDataSource: NSObject, DataSourceProtocol {
 
 // MARK: - Public Methods
 extension AlbumsDataSource {
-  func setData(albumsList: [Album]) {
+  func setData(viewModels: [AlbumsListViewController.ViewModel]) {
     var rows = [AlbumsRow]()
-    albumsList.forEach { album in
-      rows.append(.album(.init(albumTitle: album.title,
-                               albumPhotoUrl: "")))
+    viewModels.forEach {
+      rows.append(.album(.init(albumTitle: $0.album.title,
+                               albumPhotoUrl: $0.photos.first?.thumbnailUrl ?? "")))
     }
     sections.append(.albums(rows: rows))
   }

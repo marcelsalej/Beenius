@@ -27,6 +27,9 @@ extension AlbumsListInteractor: AlbumsListBusinessLogic {
     loadAlbums(dispatchGroup: dispatchGroup)
     loadPhotos(dispatchGroup: dispatchGroup)
     dispatchGroup.notify(queue: .main) {
+      self.presenter?.presentAlbumsList(userId: userId,
+                                        albums: self.albums,
+                                        photos: self.photos)
     }
   }
 }
