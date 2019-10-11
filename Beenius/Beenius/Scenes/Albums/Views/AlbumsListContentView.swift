@@ -9,10 +9,10 @@
 import UIKit
 
 class AlbumsListContentView: UIView {
-  private let refreshControl = UIRefreshControl.setupAutoLayout()
+  lazy var refreshControl = UIRefreshControl.setupAutoLayout()
   private let activityIndicator = UIActivityIndicatorView.setupAutoLayout()
-  private let tableView = UITableView.setupAutoLayout()
-  private let noDataView = UIView.setupAutoLayout()
+  let tableView = UITableView.setupAutoLayout()
+  let noDataView = UIView.setupAutoLayout()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -22,19 +22,8 @@ class AlbumsListContentView: UIView {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-}
-
-// MARK: - Private Methods
-private extension AlbumsListContentView {
-  func setupViews() {
-    setupActivityIndicator()
-    setupTableView()
-    setupRefreshControl()
-    setupNoDataView()
-  }
   
   func setupNoDataView() {
-    addSubview(noDataView)
     tableView.backgroundView = noDataView
     tableView.separatorColor = .clear
     noDataView.snp.makeConstraints {
@@ -43,6 +32,24 @@ private extension AlbumsListContentView {
     UIView.animate(withDuration: 0.3) {
       self.noDataView.isHidden = false
     }
+  }
+  
+  func hideNoDataView() {
+    tableView.backgroundView = nil
+    tableView.separatorColor = .lightGray
+    UIView.animate(withDuration: 0.2) {
+      self.noDataView.isHidden = true
+    }
+  }
+}
+
+// MARK: - Private Methods
+private extension AlbumsListContentView {
+  func setupViews() {
+    setupActivityIndicator()
+    setupTableView()
+    setupRefreshControl()
+  
   }
   
   func setupActivityIndicator() {
@@ -65,5 +72,16 @@ private extension AlbumsListContentView {
     refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     refreshControl.tintColor = .darkGray
     tableView.addSubview(refreshControl)
+  }
+}
+
+// MARK: - Loader
+extension AlbumsListContentView {
+  func toggleLoading(_ isLoading: Bool) {
+    UIView.animate(withDuration: 0.2) {
+      self.tableView.alpha = isLoading ? 0 : 1
+      self.activityIndicator.alpha = isLoading ? 1 : 0
+    }
+    isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
   }
 }

@@ -51,16 +51,24 @@ class AlbumsListViewController: UIViewController {
 // MARK: - Load data
 extension AlbumsListViewController {
   func fetchUserAlbums(userId: Int) {
+    contentView.toggleLoading(true)
     interactor?.fetchAlbumList(for: userId)
   }
 }
 
 // MARK: - Display Logic
 extension AlbumsListViewController: AlbumsListDisplayLogic {
-  func displayAlbumsListSuccess(viewModels: [AlbumsListViewController.ViewModel]) {
+  func displayAlbumsListSuccess(albumsList: [Album]) {
+    dataSource.setData(albumsList: albumsList)
+    contentView.tableView.reloadData()
+    contentView.toggleLoading(false)
+    contentView.refreshControl.endRefreshing()
   }
   
   func displayAlbumsListFailure(error: NetworkError) {
+    contentView.toggleLoading(false)
+    contentView.setupNoDataView()
+    contentView.refreshControl.endRefreshing()
   }
 }
 
@@ -75,6 +83,7 @@ private extension AlbumsListViewController {
   func setupContentView() {
     view.addSubview(contentView)
     contentView.backgroundColor = .white
+    contentView.tableView.dataSource = dataSource
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }

@@ -23,7 +23,9 @@ extension UsersListDataSource {
     // generate sections
     var rows = [UsersListDataSourceRow]()
     users.forEach { user in
-      rows.append(.user(.init(username: user.username, name: user.name, company: user.company.name)))
+      rows.append(.user(.init(username: user.username,
+                              name: user.name,
+                              company: user.company.name)))
     }
     sections.append(.userList(rows: rows))
   }
