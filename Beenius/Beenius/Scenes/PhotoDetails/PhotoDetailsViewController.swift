@@ -42,11 +42,19 @@ class PhotoDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    setDetailsData()
   }
 }
 
 // MARK: - Display Logic
 extension PhotoDetailsViewController: PhotoDetailsDisplayLogic {
+}
+
+// MARK: - Set data
+private extension PhotoDetailsViewController {
+  func setDetailsData() {
+    contentView.fullScreenImageView.kf.setImage(with: URL(string: photo.url))
+  }
 }
 
 // MARK: - Private Methods
@@ -58,6 +66,8 @@ private extension PhotoDetailsViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
