@@ -107,7 +107,7 @@ extension PhotosViewController {
 extension PhotosViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     selectedAlbum.photos[safe: indexPath.row].map {
-      router?.navigateToPhotoDetails(selectedAlbum: selectedAlbum.album, user: user, photo: $0)
+      router?.navigateToPhotoDetails(album: selectedAlbum.album, user: user, photo: $0)
     }
   }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PhotosRoutingLogic {
-  func navigateToPhotoDetails(selectedAlbum: Album, user: User, photo: Photo)
+  func navigateToPhotoDetails(album: Album, user: User, photo: Photo)
 }
 
 protocol PhotosRouterDelegate: AnyObject {
@@ -22,7 +22,10 @@ class PhotosRouter {
 
 // MARK: - Routing Logic
 extension PhotosRouter: PhotosRoutingLogic {
-  func navigateToPhotoDetails(selectedAlbum: Album, user: User, photo: Photo) {
-    // next view controller here
+  func navigateToPhotoDetails(album: Album, user: User, photo: Photo) {
+    let photoDetailsViewController = PhotoDetailsViewController(delegate: self, user: user, album: album, photo: photo)
+    viewController?.navigationController?.pushViewController(photoDetailsViewController, animated: true)
   }
 }
+
+extension PhotosRouter: PhotoDetailsRouterDelegate {}
