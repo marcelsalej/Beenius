@@ -54,13 +54,16 @@ extension PhotoDetailsViewController: PhotoDetailsDisplayLogic {
 private extension PhotoDetailsViewController {
   func setDetailsData() {
     contentView.fullScreenImageView.kf.setImage(with: URL(string: photo.url))
+    contentView.photoDetailView.setData(.init(thumbnailUrl: photo.thumbnailUrl,
+                                              imageTitle: photo.title,
+                                              albumTitle: album.title,
+                                              userCreate: user.name))
   }
 }
 
-// MARK: - Private Methods
+// MARK: - Setup UI
 private extension PhotoDetailsViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
   }
   

@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoDetailsContentView: UIView {
   let fullScreenImageView = UIImageView.setupAutoLayout()
+  let photoDetailView = PhotoDetailView.setupAutoLayout()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -21,10 +22,11 @@ class PhotoDetailsContentView: UIView {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - Setup UI
 private extension PhotoDetailsContentView {
   func setupViews() {
     setupFullScreenImageView()
+    setupPhotoDetailView()
   }
   
   func setupFullScreenImageView() {
@@ -33,5 +35,20 @@ private extension PhotoDetailsContentView {
     fullScreenImageView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+  
+  func setupPhotoDetailView() {
+    addSubview(photoDetailView)
+    photoDetailView.backgroundColor = .secondarySystemBackground
+    photoDetailView.snp.makeConstraints {
+      $0.bottom.leading.trailing.equalToSuperview()
+    }
+  }
+}
+
+extension PhotoDetailsContentView {
+  struct ViewModel {
+    let photoUrl: String
+    let photoDetail: PhotoDetailView.ViewModel
   }
 }
