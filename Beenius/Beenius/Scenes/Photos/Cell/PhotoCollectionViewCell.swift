@@ -50,6 +50,7 @@ private extension PhotoCollectionViewCell {
   
   func setupPhotoCaptionView() {
     photoCaptionVisualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    photoCaptionVisualEffectView.effect = UIBlurEffect(style: .dark)
     photoImageView.insertSubview(photoCaptionVisualEffectView, aboveSubview: photoImageView)
     photoCaptionVisualEffectView.snp.makeConstraints {
       $0.bottom.leading.trailing.equalToSuperview()
@@ -59,9 +60,13 @@ private extension PhotoCollectionViewCell {
   
   func setupCaptionTextLabel() {
     photoCaptionVisualEffectView.contentView.addSubview(captionTextLabel)
+    captionTextLabel.font = UIFont.custom(style: .bookItalic, size: 12)
     captionTextLabel.text = "test"
+    captionTextLabel.textColor = .white
     captionTextLabel.numberOfLines = 0
     captionTextLabel.textAlignment = .center
+    captionTextLabel.minimumScaleFactor = 0.5
+    captionTextLabel.adjustsFontSizeToFitWidth = true
     captionTextLabel.snp.makeConstraints {
       $0.top.bottom.leading.trailing.equalToSuperview().inset(20)
     }
