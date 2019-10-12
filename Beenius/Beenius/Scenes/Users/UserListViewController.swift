@@ -54,7 +54,6 @@ class UserListViewController: UIViewController {
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
   func displayUserListError(error: NetworkError) {
-    // TODO: - Show error
     dataSource.setData(users: [])
     contentView.toggleLoading(false)
     contentView.setupNoDataView()
@@ -87,7 +86,6 @@ private extension UserListViewController {
   }
   
   func setupNavigationHeader() {
-    // TODO: - Move to localization
     navigationItem.title = "Users"
   }
   

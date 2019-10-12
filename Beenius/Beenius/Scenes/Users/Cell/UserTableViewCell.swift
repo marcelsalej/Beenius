@@ -12,7 +12,7 @@ class UserTableViewCell: UITableViewCell {
   private let usernameNameLabel = UILabel.setupAutoLayout()
   private let companyLabel = UILabel.setupAutoLayout()
   
-  // MARK: - Lifecycle
+  // MARK: - Init methods
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
      super.init(style: style, reuseIdentifier: reuseIdentifier)
      setupViews()

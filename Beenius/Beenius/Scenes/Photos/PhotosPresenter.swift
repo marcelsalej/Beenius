@@ -22,7 +22,8 @@ extension PhotosPresenter: PhotosPresentationLogic {
     switch result {
     case .success(let photos):
       let photosToShow = photos.filter { $0.albumId == albumId }
-      viewController?.displayFetchPhotosSuccess(photos: photosToShow)
+      let sortedPhotos = photosToShow.sorted { $0.title < $1.title }
+      viewController?.displayFetchPhotosSuccess(photos: sortedPhotos)
     case .failure(let error):
       viewController?.displayFetchPhotosError(error: error)
     }

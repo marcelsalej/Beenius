@@ -22,7 +22,7 @@ extension PhotoListDataSource {
   }
 }
 
-// MARK: - UITableView DataSource
+// MARK: - UITableViewDataSource
 extension PhotoListDataSource: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return numberOfRows(in: section)

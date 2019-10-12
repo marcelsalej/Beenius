@@ -15,6 +15,7 @@ class PhotosContentView: UIView {
   let refreshControl = UIRefreshControl.setupAutoLayout()
   private let noDataView = NoDataView.setupAutoLayout()
   
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()

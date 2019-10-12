@@ -12,6 +12,7 @@ class PhotoDetailsContentView: UIView {
   let fullScreenImageView = UIImageView.setupAutoLayout()
   let photoDetailView = PhotoDetailView.setupAutoLayout()
   
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -46,6 +47,7 @@ private extension PhotoDetailsContentView {
   }
 }
 
+// MARK: - ViewModel
 extension PhotoDetailsContentView {
   struct ViewModel {
     let photoUrl: String

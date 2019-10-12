@@ -14,6 +14,7 @@ class AlbumsListContentView: UIView {
   let tableView = UITableView.setupAutoLayout()
   let noDataView = NoDataView.setupAutoLayout()
   
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()

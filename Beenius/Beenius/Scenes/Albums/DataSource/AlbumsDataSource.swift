@@ -29,7 +29,7 @@ extension AlbumsDataSource {
   }
 }
 
-// MARK: - UITableView DataSource
+// MARK: - UITableViewDataSource
 extension AlbumsDataSource: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return numberOfSections()

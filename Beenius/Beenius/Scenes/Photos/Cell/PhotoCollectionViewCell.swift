@@ -13,7 +13,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
   private let photoCaptionVisualEffectView = UIVisualEffectView.setupAutoLayout()
   private let captionTextLabel = UILabel.setupAutoLayout()
   
-  // MARK: - Lifecycle
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
