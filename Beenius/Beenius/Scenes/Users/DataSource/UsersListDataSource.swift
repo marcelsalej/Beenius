@@ -20,7 +20,6 @@ class UsersListDataSource: NSObject, DataSourceProtocol {
 extension UsersListDataSource {
   func setData(users: [User]) {
     sections.removeAll()
-    // generate sections
     var rows = [UsersListDataSourceRow]()
     users.forEach { user in
       rows.append(.user(.init(username: user.username,
@@ -31,7 +30,7 @@ extension UsersListDataSource {
   }
 }
 
-// MARK: - UITableView DataSource
+// MARK: - UITableViewDataSource
 extension UsersListDataSource: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return numberOfSections()

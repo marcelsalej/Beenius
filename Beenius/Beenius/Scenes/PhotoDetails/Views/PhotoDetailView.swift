@@ -16,6 +16,7 @@ class PhotoDetailView: UIView {
   let userCreateLabel = UILabel.setupAutoLayout()
   private let bottomSeparatorView = UIView.setupAutoLayout()
   
+  // MARK: - Init methods
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()

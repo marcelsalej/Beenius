@@ -13,7 +13,7 @@ class AlbumTableViewCell: UITableViewCell {
   private let albumTitleLabel = UILabel.setupAutoLayout()
   private let albumImage = UIImageView.setupAutoLayout()
   
-  // MARK: - Lifecycle
+  // MARK: - Init methods
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
      super.init(style: style, reuseIdentifier: reuseIdentifier)
      setupViews()

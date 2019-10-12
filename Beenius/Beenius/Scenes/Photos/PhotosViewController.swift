@@ -51,9 +51,7 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController {
   func loadPhotoList() {
     contentView.toggleLoading(true)
-    dataSource.setData(photos: selectedAlbum.photos)
-    contentView.collectionView.reloadData()
-    contentView.toggleLoading(false)
+    interactor?.fetchPhotos(albumId: selectedAlbum.album.id)
   }
 }
 
@@ -63,6 +61,7 @@ extension PhotosViewController: PhotosDisplayLogic {
     dataSource.setData(photos: photos)
     contentView.collectionView.reloadData()
     contentView.refreshControl.endRefreshing()
+    contentView.toggleLoading(false)
   }
   
   func displayFetchPhotosError(error: NetworkError) {
@@ -70,6 +69,7 @@ extension PhotosViewController: PhotosDisplayLogic {
     contentView.setupNoDataView()
     contentView.collectionView.reloadData()
     contentView.refreshControl.endRefreshing()
+    contentView.toggleLoading(false)
   }
 }
 
