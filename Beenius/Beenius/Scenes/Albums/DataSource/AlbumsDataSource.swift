@@ -19,6 +19,7 @@ class AlbumsDataSource: NSObject, DataSourceProtocol {
 // MARK: - Public Methods
 extension AlbumsDataSource {
   func setData(viewModels: [AlbumsListViewController.ViewModel]) {
+    sections.removeAll()
     var rows = [AlbumsRow]()
     viewModels.forEach {
       rows.append(.album(.init(albumTitle: $0.album.title,

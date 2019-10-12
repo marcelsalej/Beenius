@@ -9,6 +9,8 @@
 import UIKit
 
 protocol PhotosDisplayLogic: AnyObject {
+  func displayFetchPhotosSuccess(photos: [Photo])
+  func displayFetchPhotosError(error: NetworkError)
 }
 
 class PhotosViewController: UIViewController {
@@ -48,13 +50,27 @@ class PhotosViewController: UIViewController {
 // MARK: - Set data
 extension PhotosViewController {
   func loadPhotoList() {
+    contentView.toggleLoading(true)
     dataSource.setData(photos: selectedAlbum.photos)
     contentView.collectionView.reloadData()
+    contentView.toggleLoading(false)
   }
 }
 
 // MARK: - Display Logic
 extension PhotosViewController: PhotosDisplayLogic {
+  func displayFetchPhotosSuccess(photos: [Photo]) {
+    dataSource.setData(photos: photos)
+    contentView.collectionView.reloadData()
+    contentView.refreshControl.endRefreshing()
+  }
+  
+  func displayFetchPhotosError(error: NetworkError) {
+    dataSource.setData(photos: [])
+    contentView.setupNoDataView()
+    contentView.collectionView.reloadData()
+    contentView.refreshControl.endRefreshing()
+  }
 }
 
 // MARK: - UI setup
@@ -73,15 +89,25 @@ private extension PhotosViewController {
     contentView.backgroundColor = .white
     contentView.collectionView.dataSource = dataSource
     contentView.collectionView.delegate = self
+    contentView.refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+ 
+// MARK: - Action handlers
+extension PhotosViewController {
+  @objc func didPullToRefresh() {
+    interactor?.fetchPhotos(albumId: selectedAlbum.album.id)
   }
 }
 
 // MARK: - UICollectionViewDelegate
 extension PhotosViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // implement selection
+    selectedAlbum.photos[safe: indexPath.row].map {
+      router?.navigateToPhotoDetails(selectedAlbum: selectedAlbum.album, user: user, photo: $0)
+    }
   }
 }

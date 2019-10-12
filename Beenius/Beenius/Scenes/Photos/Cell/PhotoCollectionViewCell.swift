@@ -61,7 +61,6 @@ private extension PhotoCollectionViewCell {
   func setupCaptionTextLabel() {
     photoCaptionVisualEffectView.contentView.addSubview(captionTextLabel)
     captionTextLabel.font = UIFont.custom(style: .bookItalic, size: 12)
-    captionTextLabel.text = "test"
     captionTextLabel.textColor = .white
     captionTextLabel.numberOfLines = 0
     captionTextLabel.textAlignment = .center

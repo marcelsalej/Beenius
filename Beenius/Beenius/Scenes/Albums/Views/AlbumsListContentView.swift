@@ -10,9 +10,9 @@ import UIKit
 
 class AlbumsListContentView: UIView {
   lazy var refreshControl = UIRefreshControl.setupAutoLayout()
-  private let activityIndicator = UIActivityIndicatorView.setupAutoLayout()
+  private let activityIndicatorView = UIActivityIndicatorView.setupAutoLayout()
   let tableView = UITableView.setupAutoLayout()
-  let noDataView = UIView.setupAutoLayout()
+  let noDataView = NoDataView.setupAutoLayout()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -23,38 +23,39 @@ class AlbumsListContentView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func setupNoDataView() {
-    tableView.backgroundView = noDataView
-    tableView.separatorColor = .clear
-    noDataView.snp.makeConstraints {
-      $0.center.equalToSuperview()
-    }
-    UIView.animate(withDuration: 0.3) {
-      self.noDataView.isHidden = false
-    }
-  }
-  
-  func hideNoDataView() {
-    tableView.backgroundView = nil
-    tableView.separatorColor = .lightGray
-    UIView.animate(withDuration: 0.2) {
-      self.noDataView.isHidden = true
-    }
-  }
+   func setupNoDataView() {
+    noDataView.backgroundColor = .red
+     tableView.backgroundView = noDataView
+     tableView.separatorColor = .clear
+     noDataView.snp.makeConstraints {
+       $0.center.equalToSuperview()
+     }
+     UIView.animate(withDuration: 0.3) {
+       self.noDataView.isHidden = false
+     }
+   }
+   
+   func hideNoDataView() {
+     tableView.backgroundView = nil
+     tableView.separatorColor = .lightGray
+     UIView.animate(withDuration: 0.2) {
+       self.noDataView.isHidden = true
+     }
+   }
 }
 
 // MARK: - UI setup
 private extension AlbumsListContentView {
   func setupViews() {
-    setupActivityIndicator()
+    setupActivityIndicatorView()
     setupTableView()
     setupRefreshControl()
   }
   
-  func setupActivityIndicator() {
-    addSubview(activityIndicator)
-    activityIndicator.color = .gray
-    activityIndicator.snp.makeConstraints {
+  func setupActivityIndicatorView() {
+    addSubview(activityIndicatorView)
+    activityIndicatorView.color = .gray
+    activityIndicatorView.snp.makeConstraints {
       $0.center.equalToSuperview()
     }
   }
@@ -63,7 +64,7 @@ private extension AlbumsListContentView {
     addSubview(tableView)
     tableView.register(AlbumTableViewCell.self)
     tableView.snp.makeConstraints {
-      $0.top.bottom.leading.trailing.equalToSuperview()
+      $0.edges.equalTo(safeAreaLayoutGuide)
     }
   }
   
@@ -79,8 +80,8 @@ extension AlbumsListContentView {
   func toggleLoading(_ isLoading: Bool) {
     UIView.animate(withDuration: 0.2) {
       self.tableView.alpha = isLoading ? 0 : 1
-      self.activityIndicator.alpha = isLoading ? 1 : 0
+      self.activityIndicatorView.alpha = isLoading ? 1 : 0
     }
-    isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    isLoading ? activityIndicatorView.startAnimating() : activityIndicatorView.stopAnimating()
   }
 }
