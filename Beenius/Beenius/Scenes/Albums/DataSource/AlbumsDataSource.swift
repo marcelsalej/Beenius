@@ -23,7 +23,7 @@ extension AlbumsDataSource {
     var rows = [AlbumsRow]()
     viewModels.forEach {
       rows.append(.album(.init(albumTitle: $0.album.title,
-                               albumPhotoUrl: $0.photos.first?.thumbnailUrl ?? "")))
+                               albumPhotoUrl: $0.photos[safe: Int.random(in: 0..<$0.photos.count)]?.thumbnailUrl ?? "")))
     }
     sections.append(.albums(rows: rows))
   }
