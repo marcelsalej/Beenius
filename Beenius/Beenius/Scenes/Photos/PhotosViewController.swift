@@ -48,8 +48,8 @@ class PhotosViewController: UIViewController {
 // MARK: - Set data
 extension PhotosViewController {
   func loadPhotoList() {
-    dataSource.setData()
-    
+    dataSource.setData(photos: selectedAlbum.photos)
+    contentView.collectionView.reloadData()
   }
 }
 
@@ -60,7 +60,6 @@ extension PhotosViewController: PhotosDisplayLogic {
 // MARK: - UI setup
 private extension PhotosViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
     setupNavigationTitle()
   }
