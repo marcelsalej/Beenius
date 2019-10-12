@@ -9,6 +9,8 @@
 import UIKit
 
 class PhotoDetailsContentView: UIView {
+  let fullScreenImageView = UIImageView.setupAutoLayout()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -22,5 +24,14 @@ class PhotoDetailsContentView: UIView {
 // MARK: - Private Methods
 private extension PhotoDetailsContentView {
   func setupViews() {
+    setupFullScreenImageView()
+  }
+  
+  func setupFullScreenImageView() {
+    addSubview(fullScreenImageView)
+    fullScreenImageView.contentMode = .scaleToFill
+    fullScreenImageView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
