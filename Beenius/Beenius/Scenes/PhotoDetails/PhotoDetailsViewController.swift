@@ -75,6 +75,11 @@ extension PhotoDetailsViewController {
 private extension PhotoDetailsViewController {
   func setupViews() {
     setupContentView()
+    setupNavigationTitle()
+  }
+  
+  func setupNavigationTitle() {
+    navigationItem.title = photo.title
   }
   
   func setupContentView() {
