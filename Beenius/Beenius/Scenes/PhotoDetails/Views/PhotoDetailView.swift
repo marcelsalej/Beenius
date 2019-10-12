@@ -112,6 +112,7 @@ private extension PhotoDetailView {
     addSubview(bottomSeparatorView)
     bottomSeparatorView.backgroundColor = .opaqueSeparator
     bottomSeparatorView.snp.makeConstraints {
+      $0.top.equalTo(thumbnailImageView.snp.bottom).offset(30)
       $0.top.equalTo(userCreateLabel.snp.bottom).offset(30)
       $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
       $0.height.equalTo(1)
