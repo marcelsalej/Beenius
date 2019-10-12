@@ -14,7 +14,10 @@ class PhotoListDataSource: NSObject, DataSourceProtocol {
 
 // MARK: - Public Methods
 extension PhotoListDataSource {
-  func setData() {
+  func setData(photos: [Photo]) {
+    let photoRows: [PhotoListRow] = photos.map { .photo(.init(photoUrl: $0.url,
+                                                              photoDescription: $0.title))}
+    sections.append(.photoList(rows: photoRows))
   }
 }
 

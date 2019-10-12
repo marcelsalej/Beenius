@@ -9,11 +9,9 @@
 import Foundation
 
 protocol PhotosRoutingLogic {
-  
 }
 
 protocol PhotosRouterDelegate: AnyObject {
-  
 }
 
 class PhotosRouter {
@@ -23,5 +21,4 @@ class PhotosRouter {
 
 // MARK: - Routing Logic
 extension PhotosRouter: PhotosRoutingLogic {
-  
 }

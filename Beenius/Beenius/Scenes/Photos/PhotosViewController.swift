@@ -14,6 +14,7 @@ protocol PhotosDisplayLogic: AnyObject {
 class PhotosViewController: UIViewController {
   var interactor: PhotosBusinessLogic?
   var router: PhotosRoutingLogic?
+  private let dataSource = PhotoListDataSource()
   private lazy var contentView = PhotosContentView.setupAutoLayout()
   private let user: User
   private let selectedAlbum: AlbumsListViewController.ViewModel
@@ -40,6 +41,15 @@ class PhotosViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    loadPhotoList()
+  }
+}
+
+// MARK: - Set data
+extension PhotosViewController {
+  func loadPhotoList() {
+    dataSource.setData(photos: selectedAlbum.photos)
+    contentView.collectionView.reloadData()
   }
 }
 
@@ -47,10 +57,9 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: PhotosDisplayLogic {
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension PhotosViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
     setupNavigationTitle()
   }
@@ -62,8 +71,17 @@ private extension PhotosViewController {
   func setupContentView() {
     view.addSubview(contentView)
     contentView.backgroundColor = .white
+    contentView.collectionView.dataSource = dataSource
+    contentView.collectionView.delegate = self
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+
+// MARK: - UICollectionViewDelegate
+extension PhotosViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // implement selection
   }
 }

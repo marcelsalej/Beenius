@@ -9,6 +9,9 @@
 import UIKit
 
 class PhotosContentView: UIView {
+  let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).setupAutoLayout()
+  private let cellSpacing: CGFloat = 30
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -19,10 +22,24 @@ class PhotosContentView: UIView {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension PhotosContentView {
   func setupViews() {
-    // setup background, shadows, etc
-    // call other views setup
+    setupCollectionView()
+  }
+  
+  func setupCollectionView() {
+    addSubview(collectionView)
+    collectionView.register(PhotoCollectionViewCell.self)
+    let layout = UICollectionViewFlowLayout()
+    layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 2) - cellSpacing, height: (UIScreen.main.bounds.width / 2) - cellSpacing )
+       layout.minimumInteritemSpacing = cellSpacing / 2
+       layout.minimumLineSpacing = cellSpacing / 2
+       layout.sectionInset = UIEdgeInsets(top: cellSpacing / 2, left: cellSpacing / 2, bottom: cellSpacing / 2, right: cellSpacing / 2)
+    collectionView.collectionViewLayout = layout
+    collectionView.backgroundColor = .white
+    collectionView.snp.makeConstraints {
+      $0.top.bottom.leading.trailing.equalToSuperview()
+    }
   }
 }

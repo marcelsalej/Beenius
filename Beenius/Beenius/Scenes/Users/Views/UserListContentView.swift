@@ -44,7 +44,7 @@ class UserListContentView: UIView {
   }
 }
 
-// MARK: - View setup
+// MARK: - UI setup
 private extension UserListContentView {
   func setupViews() {
     setupTableView()

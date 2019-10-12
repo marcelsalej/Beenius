@@ -75,7 +75,7 @@ extension AlbumsListViewController: AlbumsListDisplayLogic {
   }
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension AlbumsListViewController {
   func setupViews() {
     setupContentView()
