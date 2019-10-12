@@ -12,7 +12,7 @@ class UserListContentView: UIView {
   let tableView = UITableView.setupAutoLayout()
   let noDataView = NoDataView.setupAutoLayout()
   lazy var refreshControl = UIRefreshControl.setupAutoLayout()
-  private let activityIndicator = UIActivityIndicatorView.setupAutoLayout()
+  private let activityIndicatorView = UIActivityIndicatorView.setupAutoLayout()
   
   // MARK: - Init methods
   override init(frame: CGRect) {
@@ -44,11 +44,11 @@ class UserListContentView: UIView {
   }
 }
 
-// MARK: - View setup
+// MARK: - UI setup
 private extension UserListContentView {
   func setupViews() {
     setupTableView()
-    setupActivityIndicator()
+    setupActivityIndicatorView()
     setupRefreshControl()
   }
   
@@ -60,10 +60,10 @@ private extension UserListContentView {
     }
   }
   
-  func setupActivityIndicator() {
-    addSubview(activityIndicator)
-    activityIndicator.color = .gray
-    activityIndicator.snp.makeConstraints {
+  func setupActivityIndicatorView() {
+    addSubview(activityIndicatorView)
+    activityIndicatorView.color = .gray
+    activityIndicatorView.snp.makeConstraints {
       $0.center.equalToSuperview()
     }
   }
@@ -80,8 +80,8 @@ extension UserListContentView {
   func toggleLoading(_ isLoading: Bool) {
     UIView.animate(withDuration: 0.2) {
       self.tableView.alpha = isLoading ? 0 : 1
-      self.activityIndicator.alpha = isLoading ? 1 : 0
+      self.activityIndicatorView.alpha = isLoading ? 1 : 0
     }
-    isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    isLoading ? activityIndicatorView.startAnimating() : activityIndicatorView.stopAnimating()
   }
 }

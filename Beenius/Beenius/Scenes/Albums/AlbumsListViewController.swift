@@ -69,17 +69,19 @@ extension AlbumsListViewController: AlbumsListDisplayLogic {
   }
   
   func displayAlbumsListFailure(error: NetworkError) {
+    dataSource.setData(viewModels: [])
     contentView.toggleLoading(false)
     contentView.setupNoDataView()
+    contentView.tableView.reloadData()
     contentView.refreshControl.endRefreshing()
   }
 }
 
-// MARK: - Private Methods
+// MARK: - UI setup
 private extension AlbumsListViewController {
   func setupViews() {
+    setupNavigationHeader()
     setupContentView()
-    setupNavigationBar()
   }
   
   func setupContentView() {
@@ -93,7 +95,7 @@ private extension AlbumsListViewController {
     }
   }
   
-  func setupNavigationBar() {
+  func setupNavigationHeader() {
     navigationItem.title = "Albums"
   }
 }
@@ -107,8 +109,11 @@ private extension AlbumsListViewController {
 // MARK: - UITableViewDelegate
 extension AlbumsListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedAlbum = viewModels[indexPath.row]
-    router?.navigateToPhotos(user: user, selectedAlbum: selectedAlbum)
+    viewModels[safe: indexPath.row].map {
+      router?.navigateToPhotos(user: user, selectedAlbum: $0)
+      return
+    }
+    contentView.tableView.deselectSelectedRow()
   }
 }
 

@@ -55,9 +55,10 @@ class UserListViewController: UIViewController {
 extension UserListViewController: UserListDisplayLogic {
   func displayUserListError(error: NetworkError) {
     // TODO: - Show error
-    print("Error user list")
+    dataSource.setData(users: [])
     contentView.toggleLoading(false)
     contentView.setupNoDataView()
+    contentView.tableView.reloadData()
     contentView.refreshControl.endRefreshing()
   }
   
@@ -112,10 +113,10 @@ private extension UserListViewController {
 // MARK: - UITableViewDelegate
 extension UserListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let user = users?[indexPath.row] else {
-      contentView.tableView.deselectSelectedRow()
+    users?[safe: indexPath.row].map {
+      router?.navigateToAlbumList(for: $0)
       return
     }
-    router?.navigateToAlbumList(for: user)
+    contentView.tableView.deselectSelectedRow()
   }
 }
