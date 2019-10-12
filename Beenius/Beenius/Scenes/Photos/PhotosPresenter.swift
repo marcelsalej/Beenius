@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PhotosPresentationLogic {
-  
+  func presentPhotos(_ result: Result<[Photo], NetworkError>, for albumId: Int)
 }
 
 class PhotosPresenter {
@@ -18,5 +18,13 @@ class PhotosPresenter {
 
 // MARK: - Presentation Logic
 extension PhotosPresenter: PhotosPresentationLogic {
-  
+  func presentPhotos(_ result: Result<[Photo], NetworkError>, for albumId: Int) {
+    switch result {
+    case .success(let photos):
+      let photosToShow = photos.filter { $0.albumId == albumId }
+      viewController?.displayFetchPhotosSuccess(photos: photosToShow)
+    case .failure(let error):
+      viewController?.displayFetchPhotosError(error: error)
+    }
+  }
 }

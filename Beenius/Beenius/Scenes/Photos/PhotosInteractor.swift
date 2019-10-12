@@ -9,14 +9,19 @@
 import Foundation
 
 protocol PhotosBusinessLogic {
-  
+  func fetchPhotos(albumId: Int)
 }
 
 class PhotosInteractor {
   var presenter: PhotosPresentationLogic?
+  private let photosService: PhotosService =  .init()
 }
 
 // MARK: - Business Logic
 extension PhotosInteractor: PhotosBusinessLogic {
-  
+  func fetchPhotos(albumId: Int) {
+    photosService.getPhotoList { [weak self] result in
+      self?.presenter?.presentPhotos(result, for: albumId)
+    }
+  }
 }
