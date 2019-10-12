@@ -17,5 +17,4 @@ class PhotoDetailsPresenter {
 
 // MARK: - Presentation Logic
 extension PhotoDetailsPresenter: PhotoDetailsPresentationLogic {
-  
 }

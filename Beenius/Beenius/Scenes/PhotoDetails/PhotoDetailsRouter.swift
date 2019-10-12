@@ -12,7 +12,6 @@ protocol PhotoDetailsRoutingLogic {
 }
 
 protocol PhotoDetailsRouterDelegate: AnyObject {
-  
 }
 
 class PhotoDetailsRouter {
@@ -22,5 +21,4 @@ class PhotoDetailsRouter {
 
 // MARK: - Routing Logic
 extension PhotoDetailsRouter: PhotoDetailsRoutingLogic {
-  
 }
