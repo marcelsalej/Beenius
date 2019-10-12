@@ -18,6 +18,7 @@ class PhotoDetailsViewController: UIViewController {
   private let user: User
   private let album: Album
   private let photo: Photo
+  private var isTapped: Bool = false
   
   init(delegate: PhotoDetailsRouterDelegate?, user: User, album: Album, photo: Photo) {
     self.user = user
@@ -61,6 +62,15 @@ private extension PhotoDetailsViewController {
   }
 }
 
+// MARK: - Actions
+extension PhotoDetailsViewController {
+  @objc func didTapFullScreenImageView() {
+    print("Image tapped \(isTapped) ")
+    self.isTapped = !isTapped
+    hideHeaderFooter(imageTapped: isTapped)
+  }
+}
+
 // MARK: - Setup UI
 private extension PhotoDetailsViewController {
   func setupViews() {
@@ -69,8 +79,20 @@ private extension PhotoDetailsViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
+    contentView.fullScreenImageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                                action: #selector(didTapFullScreenImageView)))
+    contentView.fullScreenImageView.isUserInteractionEnabled = true
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
+    }
+  }
+  
+  func hideHeaderFooter(imageTapped: Bool) {
+    self.navigationController?.setNavigationBarHidden(isTapped, animated: true)
+    UIView.animate(withDuration: 0.3) {
+      let transformValue = self.isTapped ? self.contentView.photoDetailView.frame.height : 0
+      self.contentView.photoDetailView.transform = CGAffineTransform(translationX: 0,
+                                                                     y: transformValue)
     }
   }
 }
