@@ -65,7 +65,6 @@ private extension PhotoDetailsViewController {
 // MARK: - Actions
 extension PhotoDetailsViewController {
   @objc func didTapFullScreenImageView() {
-    print("Image tapped \(isTapped) ")
     self.isTapped = !isTapped
     hideHeaderFooter(imageTapped: isTapped)
   }
