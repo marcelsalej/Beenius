@@ -24,7 +24,7 @@ Architecture is used for the implementation of this excercise (more about archit
 * **No storyboard/Xib's**
 For elements layouting,  [SnapKit](http://snapkit.io) is used
 * **Image async loading**
-Implemented via  [Alamofire image](https://github.com/Alamofire/AlamofireImage)
+Implemented via  [Kingfisher](https://github.com/onevcat/Kingfisher)
 * **Unit/UI tests**
  Written for most crucial parts of implementation (datasource, requests, UI testing of tables/(collection views)
 * **Lint checking** 
